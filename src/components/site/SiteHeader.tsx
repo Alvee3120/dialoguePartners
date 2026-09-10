@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Logo from "./Logo";
 
@@ -12,17 +16,43 @@ const rightNav = [
 ];
 
 export default function SiteHeader() {
+  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // On the home page the hero sits under the header, so the nav has to render
+  // light while it overlaps the dark video. Everywhere else it sits on light
+  // surfaces and keeps the ink palette.
+  const overHero = pathname === "/" && !scrolled;
+
+  const navLinkClass = overHero
+    ? "transition-colors hover:text-white"
+    : "transition-colors hover:text-accent-deep";
+
   return (
-    <header className="sticky top-0 z-50 border-b border-line/70 bg-background/90 backdrop-blur">
+    <header
+      className={`sticky top-0 z-50 transition-colors duration-300 motion-reduce:transition-none ${
+        scrolled
+          ? "bg-background/85 shadow-[0_1px_0_0_var(--color-line)] backdrop-blur"
+          : "bg-transparent"
+      }`}
+    >
       <nav className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Left nav group (desktop) */}
-        <ul className="hidden items-center gap-7 text-sm font-medium text-ink/80 lg:flex">
+        <ul
+          className={`hidden items-center gap-7 text-sm font-medium lg:flex ${
+            overHero ? "text-white/85" : "text-ink/80"
+          }`}
+        >
           {leftNav.map((link) => (
             <li key={link.href}>
-              <Link
-                href={link.href}
-                className="transition-colors hover:text-accent-deep"
-              >
+              <Link href={link.href} className={navLinkClass}>
                 {link.label}
               </Link>
             </li>
@@ -32,20 +62,25 @@ export default function SiteHeader() {
         {/* Mobile spacer */}
         <div className="lg:hidden" />
 
-        {/* Center logo */}
-        <div className="flex justify-center">
+        {/* Center logo — inverted to white while it overlaps the hero video */}
+        <div
+          className={`flex justify-center ${
+            overHero ? "brightness-0 invert" : ""
+          }`}
+        >
           <Logo />
         </div>
 
         {/* Right nav group + CTA (desktop) */}
         <div className="hidden items-center gap-7 lg:flex">
-          <ul className="flex items-center gap-7 text-sm font-medium text-ink/80">
+          <ul
+            className={`flex items-center gap-7 text-sm font-medium ${
+              overHero ? "text-white/85" : "text-ink/80"
+            }`}
+          >
             {rightNav.map((link) => (
               <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="transition-colors hover:text-accent-deep"
-                >
+                <Link href={link.href} className={navLinkClass}>
                   {link.label}
                 </Link>
               </li>
@@ -53,7 +88,11 @@ export default function SiteHeader() {
           </ul>
           <Link
             href="/contact"
-            className="flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-ink-soft"
+            className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-colors ${
+              overHero
+                ? "bg-white text-ink hover:bg-white/90"
+                : "bg-ink text-white hover:bg-ink-soft"
+            }`}
           >
             Get Started
             <svg
@@ -74,7 +113,11 @@ export default function SiteHeader() {
 
         {/* Mobile hamburger */}
         <details className="group relative lg:hidden">
-          <summary className="flex size-10 list-none items-center justify-center rounded-lg text-ink [&::-webkit-details-marker]:hidden">
+          <summary
+            className={`flex size-10 list-none items-center justify-center rounded-lg [&::-webkit-details-marker]:hidden ${
+              overHero ? "text-white" : "text-ink"
+            }`}
+          >
             <span className="sr-only">Open menu</span>
             <svg
               viewBox="0 0 24 24"

@@ -22,7 +22,10 @@ const arrowIcon = (
 
 export default function Hero() {
   return (
-    <section id="top" className="relative isolate overflow-hidden bg-ink">
+    <section
+      id="top"
+      className="relative isolate -mt-20 overflow-hidden bg-ink"
+    >
       {/* Background video — silent looping clip */}
       <video
         className="absolute inset-0 h-full w-full object-cover"
@@ -39,7 +42,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/55" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40" />
 
-      <Container className="relative z-10 flex min-h-[640px] flex-col items-center justify-center py-24 text-center sm:min-h-[720px] sm:py-32">
+      <Container className="relative z-10 flex min-h-svh flex-col items-center justify-center pt-32 pb-16 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent-soft">
           RMG Sector Consultancy | Bangladesh
         </p>

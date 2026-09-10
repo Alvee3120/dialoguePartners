@@ -9,7 +9,7 @@ function LargeCard({ pillar }: { pillar: Pillar }) {
   return (
     <Link
       href={`/insights/${pillar.slug}`}
-      className="group relative flex min-h-[22rem] flex-col justify-end overflow-hidden rounded-3xl border border-line bg-white transition-shadow duration-300 hover:shadow-lg"
+      className="group relative flex h-full min-h-[22rem] flex-col justify-end overflow-hidden rounded-3xl border border-line bg-white transition-shadow duration-300 hover:shadow-lg"
     >
       <div className="absolute inset-0">
         <ImageSlot

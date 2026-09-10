@@ -22,3 +22,6 @@
 - For server/infrastructure changes, wants nothing executed before explicit approval: asks the agent to "ask me first before executing anything" and to gate each step on confirmation rather than acting autonomously. Confidence: 0.9
 - Cares strongly about not disrupting existing systems when working on shared infrastructure (e.g. hosting a new site on a server that already runs another live site): expects changes scoped to the new app only — no edits to existing configs/services — and a verification that the pre-existing site stays healthy. Confidence: 0.9
 - When doing deployment/server setup, prefers being walked through it step by step with exact commands and explanations, rather than the agent completing everything on its own. Confidence: 0.8
+- For hosting, prefers to deploy early to a managed platform (e.g. Vercel) to get a quickly shareable/reviewable URL first, and migrate to their own server only after the project is complete. Confidence: 0.6
+- Wants the site header/nav bar to sit *on* the hero section (overlapping full-bleed hero) rather than in the page flow above it — the transparent-header-over-hero look, not a bar that pushes the hero down. Confidence: 0.75
+- Wants the hero section to span the full viewport height ("100 vh") rather than a fixed pixel min-height. Confidence: 0.6
