@@ -1,0 +1,65 @@
+import Container from "@/components/site/Container";
+import ImageSlot from "@/components/site/ImageSlot";
+
+type Tile = {
+  description: string;
+  path: string;
+};
+
+// The first tile points at the existing photo; the other two are placeholders
+// until real images are dropped into `public/images/about/`.
+const tiles: Tile[] = [
+  {
+    description: "Consultants in discussion at a roundtable",
+    path: "/images/home/who-we-are.jpg",
+  },
+  {
+    description: "A modern RMG production floor in Bangladesh",
+    path: "/images/about/factory-floor.jpg",
+  },
+  {
+    description: "A dialogue session between brands and manufacturers",
+    path: "/images/about/dialogue-session.jpg",
+  },
+];
+
+export default function AboutHero() {
+  return (
+    <section className="bg-paper pt-28 pb-16 sm:pt-36 sm:pb-24">
+      <Container>
+        <div className="max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent-deep">
+            Who We Are
+          </p>
+          <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-6xl">
+            The catalyst at the centre of the ecosystem
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-foreground sm:text-xl">
+            After four decades of remarkable growth, Bangladesh&rsquo;s RMG
+            sector stands at a pivotal crossroads. Maintaining competitiveness
+            now means moving beyond low-cost manufacturing to high-value,
+            sustainable production.
+          </p>
+        </div>
+
+        {/* Collage — middle tile raised, outer tiles dropped for rhythm */}
+        <div className="mt-12 grid gap-4 sm:mt-16 sm:grid-cols-3 sm:gap-6">
+          {tiles.map((tile, index) => (
+            <div
+              key={tile.path}
+              className={`relative aspect-[4/5] overflow-hidden rounded-3xl ${
+                index === 1 ? "sm:-mt-8" : "sm:mt-6"
+              }`}
+            >
+              <ImageSlot
+                description={tile.description}
+                suggestedPath={tile.path}
+                url={index === 0 ? tile.path : undefined}
+              />
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}

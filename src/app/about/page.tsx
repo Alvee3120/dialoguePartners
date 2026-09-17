@@ -1,0 +1,197 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import Container from "@/components/site/Container";
+import ImageSlot from "@/components/site/ImageSlot";
+import SectionHeading from "@/components/site/SectionHeading";
+import EcosystemMap from "@/components/shared/EcosystemMap";
+import ValuesGrid, { values } from "@/components/shared/ValuesGrid";
+import AboutHero from "@/components/about/AboutHero";
+import FaqSection from "@/components/about/FaqSection";
+import { aboutStats, faqCategories, faqs } from "@/data/about";
+import { site } from "@/data/site";
+
+export const metadata: Metadata = {
+  title: "Who We Are",
+  description:
+    "How Dialogue Partners was founded — a consultancy and ecosystem catalyst for Bangladesh's RMG sector.",
+};
+
+export default function AboutPage() {
+  return (
+    <>
+      <AboutHero />
+
+      {/* Our Mission */}
+      <section className="py-20 sm:py-28">
+        <Container>
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent-deep">
+              Our Mission
+            </p>
+            <p className="mt-6 text-3xl font-medium leading-snug tracking-tight text-ink sm:text-4xl">
+              Dialogue Partners exists to guide Bangladesh&rsquo;s RMG sector
+              from cost-driven manufacturing to a high-value, sustainable, and
+              digitally connected industry.
+            </p>
+          </div>
+        </Container>
+      </section>
+
+      {/* By the numbers */}
+      <section className="border-y border-line bg-paper py-14 sm:py-16">
+        <Container>
+          <dl className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
+            {aboutStats.map((stat) => (
+              <div key={stat.label} className="flex flex-col-reverse text-center">
+                <dt className="mt-2 text-sm leading-snug text-foreground/70">
+                  {stat.label}
+                </dt>
+                <dd className="font-serif text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
+                  {stat.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </Container>
+      </section>
+
+      {/* Our Values */}
+      <section className="bg-paper py-20 sm:py-28">
+        <Container>
+          <SectionHeading
+            eyebrow="Our Values"
+            title="What we stand for"
+            lede="Four principles that define how we work, who we work with, and the outcomes we are accountable for."
+            center
+          />
+          <div className="mt-14">
+            <ValuesGrid />
+          </div>
+          <div className="mt-12 grid gap-8 sm:grid-cols-2">
+            {values.map((value) => (
+              <div
+                key={value.name}
+                className="rounded-3xl border border-line bg-white p-7 sm:p-8"
+              >
+                <p className="text-xl font-semibold tracking-tight text-ink">
+                  {value.name}
+                </p>
+                <p className="mt-3 leading-relaxed text-foreground">
+                  {value.expanded}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Our Role */}
+      <section className="py-20 sm:py-28">
+        <Container>
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent-deep">
+                Our Role
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl">
+                Four stakeholders. One connected ecosystem.
+              </h2>
+              <div className="mt-5 space-y-4 text-lg leading-relaxed text-foreground">
+                <p>
+                  Dialogue Partners was founded to be the North Star for this
+                  transformation. We sit at the intersection of global brands,
+                  local manufacturers, and technology leaders, bridging gaps and
+                  creating leverage for the coming decades.
+                </p>
+                <p>
+                  Global standards, local capability, capital, and regulation all
+                  have to move together. Our role is to connect the people
+                  responsible for each of them and turn conversation into
+                  deliverable strategy.
+                </p>
+              </div>
+            </div>
+            <div>
+              <EcosystemMap />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Our Work */}
+      <section className="bg-paper py-20 sm:py-28">
+        <Container>
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent-deep">
+              Our Work
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl">
+              Beyond mastering manufacturing excellence
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-foreground">
+              The industry has to move beyond low-hanging opportunities in
+              manufacturing excellence. Bangladesh&rsquo;s RMG sector has to
+              adopt product development and innovation to change the game plan
+              for the next decade.
+            </p>
+          </div>
+          <div className="relative mt-12 aspect-[16/9] w-full overflow-hidden rounded-3xl">
+            <ImageSlot
+              description="Dialogue Partners convening global brands, local manufacturers, and technology partners around one table"
+              suggestedPath="/images/about/what-we-do.jpg"
+            />
+          </div>
+        </Container>
+      </section>
+
+      {/* Our Philosophy */}
+      <section className="py-20 sm:py-28">
+        <Container>
+          <div className="mx-auto max-w-3xl rounded-3xl bg-navy px-8 py-12 text-center sm:px-12 sm:py-14">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent-soft">
+              Our Philosophy
+            </p>
+            <p className="mt-5 text-2xl font-medium leading-snug tracking-tight text-white sm:text-3xl">
+              &ldquo;Transforming the RMG ecosystem through engagement.&rdquo;
+            </p>
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/75">
+              We believe transformation doesn&rsquo;t come from top-down
+              mandates or one-off audits. It comes from sustained engagement:
+              real conversations between the people who set standards and the
+              people who have to meet them.
+            </p>
+          </div>
+        </Container>
+      </section>
+
+      <FaqSection categories={faqCategories} faqs={faqs} />
+
+      {/* Call to action */}
+      <section className="bg-navy py-16 sm:py-20">
+        <Container className="flex flex-col items-center text-center">
+          <h2 className="max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            Let&rsquo;s start a conversation
+          </h2>
+          <p className="mt-4 max-w-xl leading-relaxed text-white/70">
+            Tell us where you want to take the RMG sector next. We are
+            listening.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/contact"
+              className="rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-accent-soft"
+            >
+              Talk to an Advisor
+            </Link>
+            <a
+              href={`mailto:${site.email}`}
+              className="rounded-full border border-white/30 px-7 py-3.5 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/10"
+            >
+              {site.email}
+            </a>
+          </div>
+        </Container>
+      </section>
+    </>
+  );
+}
