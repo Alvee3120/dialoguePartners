@@ -8,11 +8,10 @@ import Logo from "./Logo";
 const leftNav = [
   { label: "Who We Are", href: "/about" },
   { label: "Values", href: "/values" },
-  { label: "Pillars", href: "/pillars" },
 ];
 
 const rightNav = [
-  { label: "Insights", href: "/insights" },
+  { label: "Insights", href: "/pillars" },
   { label: "People", href: "/people" },
 ];
 

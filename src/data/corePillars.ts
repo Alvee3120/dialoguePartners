@@ -1,6 +1,4 @@
 // The four Core Pillars — Dialogue Partners' core advisory offering.
-// Distinct from `pillars.ts` (Insight/thought-leadership categories):
-// these are the practical service lines clients engage us for.
 
 export type ServiceItem = {
   name: string;

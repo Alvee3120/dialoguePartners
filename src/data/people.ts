@@ -244,7 +244,7 @@ export const people: Person[] = [
   },
   {
     slug: "advisor-2",
-    name: "Ziaur Rahman",
+    name: "Advisor Name",
     position: "Visiting Advisor",
     comingSoon: true,
     focus: "Sustainability & ESG Reporting",
@@ -278,7 +278,7 @@ export const people: Person[] = [
   },
   {
     slug: "advisor-3",
-    name: "Ziaur Rahman",
+    name: "Advisor Name",
     position: "Visiting Advisor",
     comingSoon: true,
     focus: "Investment & Trade Facilitation",

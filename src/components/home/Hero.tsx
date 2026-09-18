@@ -58,10 +58,10 @@ export default function Hero() {
         </p>
         <div className="animate-fade-in-up mt-10 flex flex-wrap items-center justify-center gap-4 [animation-delay:360ms]">
           <Link
-            href="/insights"
+            href="/pillars"
             className="inline-flex items-center gap-2 rounded-full bg-accent-deep px-8 py-4 text-base font-semibold text-white transition-all duration-300 hover:bg-navy hover:shadow-lg hover:shadow-accent/30"
           >
-            Explore Our Insight
+            Explore Our Pillars
             {arrowIcon}
           </Link>
           <Link

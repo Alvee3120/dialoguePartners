@@ -14,7 +14,6 @@ export const site = {
 export const navLinks = [
   { label: "Who We Are", href: "/about" },
   { label: "Values", href: "/values" },
-  { label: "Pillars", href: "/pillars" },
-  { label: "Insights", href: "/insights" },
+  { label: "Insights", href: "/pillars" },
   { label: "People", href: "/people" },
 ];
