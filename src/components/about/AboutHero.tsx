@@ -27,14 +27,14 @@ export default function AboutHero() {
   return (
     <section className="bg-paper pt-28 pb-16 sm:pt-36 sm:pb-24">
       <Container>
-        <div className="max-w-3xl">
+        <div>
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent-deep">
             Who We Are
           </p>
           <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-6xl">
             The catalyst at the centre of the ecosystem
           </h1>
-          <div className="mt-6 max-w-2xl space-y-4 text-lg leading-relaxed text-foreground sm:text-xl">
+          <div className="mt-6 space-y-4 text-lg leading-relaxed text-foreground sm:text-xl">
             <p>
               After four decades of remarkable growth, Bangladesh&rsquo;s RMG
               sector stands at a pivotal crossroads. As the market matures,

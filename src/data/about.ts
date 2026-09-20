@@ -1,19 +1,5 @@
 import { site } from "./site";
 
-// Headline numbers for the About page. Derived from existing site copy —
-// confirm the exact figures before launch.
-export type Stat = {
-  value: string;
-  label: string;
-};
-
-export const aboutStats: Stat[] = [
-  { value: "40+", label: "Years of RMG sector growth" },
-  { value: "4", label: "Stakeholder groups we bridge" },
-  { value: "5", label: "Core pillars" },
-  { value: "Millions", label: "People the sector employs" },
-];
-
 export type Faq = {
   category: string;
   question: string;

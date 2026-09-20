@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Container from "@/components/site/Container";
 import { buttonAccent, buttonGhostLight } from "@/components/site/button";
-import { aboutStats } from "@/data/about";
 
 const VIDEO_URL =
   "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/consultancy%20loop.mp4";
@@ -66,17 +65,6 @@ export default function Hero() {
             Talk to an Advisor
           </Link>
         </div>
-
-        <dl className="animate-fade-in-up mt-16 grid w-full max-w-2xl grid-cols-2 gap-x-6 gap-y-8 border-t border-white/15 pt-10 [animation-delay:480ms] sm:grid-cols-4">
-          {aboutStats.map((stat) => (
-            <div key={stat.label} className="flex flex-col items-center gap-1.5 text-center">
-              <dd className="text-[26px] font-semibold tracking-tight text-white sm:text-[32px]">
-                {stat.value}
-              </dd>
-              <dt className="text-xs leading-snug text-white/60">{stat.label}</dt>
-            </div>
-          ))}
-        </dl>
       </Container>
 
       <div

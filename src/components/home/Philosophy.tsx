@@ -7,7 +7,7 @@ export default function Philosophy() {
     <section className="bg-navy py-20 sm:py-24">
       <Container>
         <Reveal className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent-soft">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">
             Our Philosophy
           </p>
           <p className="mt-5 text-[24px] font-medium leading-snug tracking-tight text-white sm:text-[32px]">

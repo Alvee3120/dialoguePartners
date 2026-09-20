@@ -7,7 +7,7 @@ import EcosystemMap from "@/components/shared/EcosystemMap";
 import ValuesGrid, { values } from "@/components/shared/ValuesGrid";
 import AboutHero from "@/components/about/AboutHero";
 import FaqSection from "@/components/about/FaqSection";
-import { aboutStats, faqCategories, faqs } from "@/data/about";
+import { faqCategories, faqs } from "@/data/about";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -34,24 +34,6 @@ export default function AboutPage() {
               digitally connected industry.
             </p>
           </div>
-        </Container>
-      </section>
-
-      {/* By the numbers */}
-      <section className="border-y border-line bg-paper py-14 sm:py-16">
-        <Container>
-          <dl className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
-            {aboutStats.map((stat) => (
-              <div key={stat.label} className="flex flex-col-reverse text-center">
-                <dt className="mt-2 text-sm leading-snug text-foreground/70">
-                  {stat.label}
-                </dt>
-                <dd className="font-serif text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
-                  {stat.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
         </Container>
       </section>
 
@@ -148,7 +130,7 @@ export default function AboutPage() {
       <section className="py-20 sm:py-28">
         <Container>
           <div className="mx-auto max-w-3xl rounded-3xl bg-navy px-8 py-12 text-center sm:px-12 sm:py-14">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent-soft">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold">
               Our Philosophy
             </p>
             <p className="mt-5 text-2xl font-medium leading-snug tracking-tight text-white sm:text-3xl">
