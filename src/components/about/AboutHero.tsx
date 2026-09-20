@@ -29,7 +29,7 @@ const tiles: Tile[] = [
 
 export default function AboutHero() {
   return (
-    <section className="bg-paper pt-28 pb-16 sm:pt-36 sm:pb-24">
+    <section className="bg-paper pt-12 pb-16 sm:pb-24">
       <Container>
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent-deep">
