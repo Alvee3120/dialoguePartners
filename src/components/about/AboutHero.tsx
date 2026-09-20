@@ -4,22 +4,26 @@ import ImageSlot from "@/components/site/ImageSlot";
 type Tile = {
   description: string;
   path: string;
+  /** Real image to render instead of the placeholder. */
+  url?: string;
 };
 
-// The first tile points at the existing photo; the other two are placeholders
-// until real images are dropped into `public/images/about/`.
+// Each tile renders its real image; `path` remains the local fallback slot.
 const tiles: Tile[] = [
   {
     description: "Consultants in discussion at a roundtable",
     path: "/images/home/who-we-are.jpg",
+    url: "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/solar.jpg",
   },
   {
     description: "A modern RMG production floor in Bangladesh",
     path: "/images/about/factory-floor.jpg",
+    url: "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/dialoguesession.png",
   },
   {
     description: "A dialogue session between brands and manufacturers",
     path: "/images/about/dialogue-session.jpg",
+    url: "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/workfloor.png",
   },
 ];
 
@@ -69,7 +73,7 @@ export default function AboutHero() {
               <ImageSlot
                 description={tile.description}
                 suggestedPath={tile.path}
-                url={index === 0 ? tile.path : undefined}
+                url={tile.url}
               />
             </div>
           ))}

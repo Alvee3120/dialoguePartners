@@ -44,10 +44,10 @@ export default function SiteHeader() {
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <nav className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:grid lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:px-8">
         {/* Left nav group (desktop) */}
         <ul
-          className={`hidden items-center gap-7 text-sm font-medium lg:flex ${
+          className={`hidden items-center gap-7 text-sm font-medium lg:flex lg:justify-start ${
             overHero ? "text-white/85" : "text-ink/80"
           }`}
         >
@@ -73,7 +73,7 @@ export default function SiteHeader() {
         </div>
 
         {/* Right nav group + CTA (desktop) */}
-        <div className="hidden items-center gap-7 lg:flex">
+        <div className="hidden items-center gap-7 lg:flex lg:justify-end">
           <ul
             className={`flex items-center gap-7 text-sm font-medium ${
               overHero ? "text-white/85" : "text-ink/80"

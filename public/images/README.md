@@ -13,8 +13,9 @@ styling are already wired up. Keep filenames as-is so nothing breaks.
 | --- | --- | --- | --- |
 | Who We Are / About section | `public/images/home/who-we-are.jpg` | Business handshake (stock) | Consultants in discussion, or an aerial view of a modern RMG facility (portrait 4:5) |
 
-> The hero background uses a looping video (`https://pub-...r2.dev/consultancy loop.mp4`)
-> — replace the URL in `src/components/home/Hero.tsx` if you have a new clip.
+> The hero background uses a looping video
+> (`https://pub-...r2.dev/Hero-DialoguePartners.mp4`) — replace the URL in
+> `src/components/home/Hero.tsx` if you have a new clip.
 
 ## About page
 

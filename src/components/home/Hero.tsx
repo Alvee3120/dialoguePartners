@@ -3,7 +3,7 @@ import Container from "@/components/site/Container";
 import { buttonAccent, buttonGhostLight } from "@/components/site/button";
 
 const VIDEO_URL =
-  "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/consultancy%20loop.mp4";
+  "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/Hero-DialoguePartners.mp4";
 
 const arrowIcon = (
   <svg
@@ -45,7 +45,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-br from-accent-deep/15 via-transparent to-transparent" />
 
       <Container className="relative z-10 flex min-h-svh flex-col items-center justify-center pt-32 pb-16 text-center">
-        <p className="animate-fade-in-up text-xs font-semibold uppercase tracking-[0.25em] text-accent-bright">
+        <p className="animate-fade-in-up text-xs font-semibold uppercase tracking-[0.25em] text-gold">
           Ecosystem Catalyst | The North Star for Bangladesh&rsquo;s RMG Transformation
         </p>
         <h1 className="animate-fade-in-up mt-5 max-w-4xl text-[36px] font-semibold leading-[1.06] tracking-tight text-white [animation-delay:120ms] sm:text-[52px] lg:text-[64px]">
