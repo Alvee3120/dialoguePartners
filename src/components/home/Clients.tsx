@@ -22,26 +22,26 @@ export default function Clients() {
 
         <div className="mt-10 grid grid-cols-2 items-center gap-4 sm:grid-cols-3 lg:grid-cols-4 lg:gap-5">
           {clients.map((client, i) => (
-            <Reveal key={client.placeholderPath} delay={i * 70}>
+            <Reveal key={client.name} delay={i * 70}>
               <div className="relative flex aspect-[3/2] items-center justify-center overflow-hidden rounded-xl border border-line bg-white p-4">
                 {client.logo ? (
                   <Image
                     src={client.logo}
-                    alt={client.name ?? "Client logo"}
+                    alt={client.name}
                     fill
                     sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
                     className="object-contain p-6"
                   />
                 ) : (
                   <div className="text-center">
-                    {client.name ? (
-                      <p className="text-sm font-medium text-foreground">
-                        {client.name}
+                    <p className="text-sm font-medium text-foreground">
+                      {client.name}
+                    </p>
+                    {client.placeholderPath ? (
+                      <p className="mt-1 font-mono text-[11px] text-foreground/40">
+                        {client.placeholderPath}
                       </p>
                     ) : null}
-                    <p className="mt-1 font-mono text-[11px] text-foreground/40">
-                      {client.placeholderPath}
-                    </p>
                   </div>
                 )}
               </div>

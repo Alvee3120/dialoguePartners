@@ -41,16 +41,15 @@ added and Responsible Business Conduct moved under it.
 
 ## Clients
 
-The home "Trusted by" strip. Only **H&M** is confirmed so far, and its logo has
-not been supplied yet — drop each logo at the listed path and set `logo` in
-`src/data/clients.ts` to start rendering it.
+The home "Trusted by" strip. Logos are hosted on R2 and referenced directly in
+`src/data/clients.ts`:
 
-| Client | File path | Status |
-| --- | --- | --- |
-| H&M | `public/images/clients/hm.svg` | Confirmed — logo not supplied |
-| — | `public/images/clients/client-2.svg` | Open slot |
-| — | `public/images/clients/client-3.svg` | Open slot |
-| — | `public/images/clients/client-4.svg` | Open slot |
+| Client | Logo |
+| --- | --- |
+| H&M | `.../H%26M-Logo.svg` |
+| DBL | `.../dbllogo.png` |
+| Ananta | `.../anatalogo.jpeg` |
+| Hameem | `.../hameem%20logo.jpeg` |
 
 ## People pages
 
