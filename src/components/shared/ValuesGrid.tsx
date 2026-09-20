@@ -82,12 +82,12 @@ export default function ValuesGrid() {
       {values.map((value) => (
         <div
           key={value.name}
-          className="group rounded-3xl border border-line bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/10 motion-reduce:hover:translate-y-0"
+          className="group rounded-xl border border-line bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg motion-reduce:hover:translate-y-0"
         >
-          <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-accent-soft text-accent-deep transition-transform duration-300 group-hover:scale-110">
+          <span className="inline-flex size-12 items-center justify-center rounded-xl bg-accent-soft text-accent-deep transition-transform duration-300 group-hover:scale-110">
             <ValueIcon name={value.icon} />
           </span>
-          <h3 className="mt-5 text-lg font-semibold text-ink">{value.name}</h3>
+          <h3 className="mt-4 text-[18px] font-semibold text-ink">{value.name}</h3>
         </div>
       ))}
     </div>

@@ -55,7 +55,7 @@ export default function SiteFooter() {
                   href="/contact"
                   className="transition-colors hover:text-white"
                 >
-                  Contact
+                  Connect With Us
                 </Link>
               </li>
             </ul>

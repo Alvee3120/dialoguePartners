@@ -10,7 +10,7 @@ export type Stat = {
 export const aboutStats: Stat[] = [
   { value: "40+", label: "Years of RMG sector growth" },
   { value: "4", label: "Stakeholder groups we bridge" },
-  { value: "4", label: "Core pillars" },
+  { value: "5", label: "Core pillars" },
   { value: "Millions", label: "People the sector employs" },
 ];
 
@@ -72,9 +72,9 @@ export const faqs: Faq[] = [
   },
   {
     category: "Sector",
-    question: "How do the four pillars fit together?",
+    question: "How do the five pillars fit together?",
     answer:
-      "Our advisory work is organised around four pillars: Climate Resilience & Decarbonization, Technology Solutions, Trade & Policy Advocacy, and Operational Excellence & Digitalization. Each can be engaged on its own, but the greatest impact comes from addressing them together.",
+      "Our advisory work is organised around five pillars: Climate Resilience & Decarbonization, Technology Solution & Innovation, Social, Operational Excellence, and Trade & Policy Advocacy. Each can be engaged on its own, but the greatest impact comes from addressing them together.",
   },
   {
     category: "Partnership",

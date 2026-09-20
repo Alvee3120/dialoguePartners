@@ -1,17 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Leaf, Circuitry, Scales, Gauge } from "@phosphor-icons/react/dist/ssr";
+import {
+  Leaf,
+  Circuitry,
+  HandHeart,
+  Gauge,
+  Scales,
+} from "@phosphor-icons/react/dist/ssr";
 import Container from "@/components/site/Container";
 import PageHeader from "@/components/shared/PageHeader";
 import Reveal from "@/components/site/Reveal";
 import { corePillars } from "@/data/corePillars";
 
-const iconMap = { Leaf, Circuitry, Scales, Gauge } as const;
+const iconMap = { Leaf, Circuitry, HandHeart, Gauge, Scales } as const;
 
 export const metadata: Metadata = {
-  title: "Pillars",
+  title: "Insight",
   description:
-    "The four service pillars of Dialogue Partners: Climate Resilience & Decarbonization, Technology Solutions, Trade & Policy Advocacy, and Operational Excellence & Digitalization.",
+    "The five service pillars of Dialogue Partners: Climate Resilience & Decarbonization, Technology Solution & Innovation, Social, Operational Excellence, and Trade & Policy Advocacy.",
 };
 
 export default function PillarsPage() {
@@ -23,8 +29,8 @@ export default function PillarsPage() {
           <Reveal>
             <PageHeader
               eyebrow="What We Do"
-              title="Four pillars, one transformation."
-              lede="Every engagement starts with a conversation about where you sit in the ecosystem. From there, we work across one or all four pillars to build a sequenced path from cost-driven manufacturing to high-value, sustainable production."
+              title="Five pillars, one transformation."
+              lede="Every engagement starts with a conversation about where you sit in the ecosystem. From there, we work across one or all five pillars to build a sequenced path from cost-driven manufacturing to high-value, sustainable production."
             />
           </Reveal>
         </Container>

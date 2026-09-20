@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Leaf, Circuitry, Scales, Gauge } from "@phosphor-icons/react/dist/ssr";
+import {
+  Leaf,
+  Circuitry,
+  HandHeart,
+  Gauge,
+  Scales,
+} from "@phosphor-icons/react/dist/ssr";
 import Container from "@/components/site/Container";
 import CtaBand from "@/components/shared/CtaBand";
 import { getCorePillar, corePillars } from "@/data/corePillars";
 import type { CorePillar } from "@/data/corePillars";
 
-const iconMap = { Leaf, Circuitry, Scales, Gauge } as const;
+const iconMap = { Leaf, Circuitry, HandHeart, Gauge, Scales } as const;
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -37,7 +43,7 @@ export default async function CorePillarPage({ params }: PageProps) {
         <Container>
           <nav className="text-sm text-foreground/70">
             <Link href="/pillars" className="transition-colors hover:text-accent-deep">
-              Pillars
+              Insight
             </Link>
             <span aria-hidden="true" className="mx-2 text-foreground/40">/</span>
             <span className="text-ink">{pillar.shortTitle}</span>
@@ -55,9 +61,11 @@ export default async function CorePillarPage({ params }: PageProps) {
             <p className="mt-5 text-2xl font-medium leading-snug tracking-tight text-accent-deep sm:text-3xl">
               {pillar.tagline}
             </p>
-            <p className="mt-5 text-lg leading-relaxed text-foreground">
-              {pillar.intro}
-            </p>
+            <div className="mt-5 space-y-4 text-lg leading-relaxed text-foreground">
+              {pillar.intro.split("\n\n").map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
           </div>
         </Container>
       </section>
@@ -73,6 +81,11 @@ export default async function CorePillarPage({ params }: PageProps) {
                 <h2 className="mt-3 text-3xl font-semibold tracking-tight text-ink">
                   {group.title}
                 </h2>
+                {group.intro ? (
+                  <p className="mt-4 text-base leading-relaxed text-foreground">
+                    {group.intro}
+                  </p>
+                ) : null}
               </div>
               <div className="grid gap-6 sm:grid-cols-2">
                 {group.items.map((item) => (

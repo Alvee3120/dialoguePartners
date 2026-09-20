@@ -26,8 +26,8 @@ Production checks: `npm run build` and `npm run lint`.
 | --- | --- |
 | `/` | Home — overview of each section, linking out |
 | `/about` | Who We Are + values + core motto |
-| `/insights` | The four pillars overview |
-| `/insights/[slug]` | Per-pillar detail page with service / area-of-work breakdown |
+| `/pillars` | Insight — the five pillars overview |
+| `/pillars/[slug]` | Per-pillar detail page with service / area-of-work breakdown |
 | `/people` | Advisor directory with profile cards |
 | `/people/[slug]` | Individual advisor page (about, experience, photos) |
 | `/contact` | Contact page |
@@ -49,7 +49,7 @@ public/
 ## Editing copy
 
 - Contact details, tagline: `src/data/site.ts`
-- Four Insight pillars (titles, taglines, service breakdowns): `src/data/pillars.ts`
+- Five Insight pillars (titles, taglines, service breakdowns): `src/data/corePillars.ts`
 - Team / advisors (names, bios, experience, socials): `src/data/people.ts`
 
 ## Image placeholders
@@ -60,7 +60,7 @@ is documented in `public/images/README.md`.
 
 ## Roadmap (incremental)
 
-- [x] Multi-page structure: home overview + About, Insights, pillar detail, People, profile, Contact
+- [x] Multi-page structure: home overview + About, Insight, pillar detail, People, profile, Contact
 - [ ] Real photography swapped into placeholders
 - [ ] Real advisor profiles filled into `people.ts`
 - [ ] Contact form

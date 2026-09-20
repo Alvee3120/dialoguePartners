@@ -15,7 +15,7 @@
   --color-card: #eef3f4;
   --color-line: #e1e8ea;
   --font-sans: var(--font-body);
-  --font-serif: var(--font-heading);
+  --font-serif: var(--font-body);
 }
 
 html {
@@ -32,8 +32,8 @@ body {
 h1,
 h2,
 h3 {
-  font-family: var(--font-heading), ui-serif, Georgia, serif;
-  letter-spacing: -0.01em;
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.02em;
 }
 
 /* Soft section backgrounds — gentle color washes instead of flat fills */
@@ -76,6 +76,17 @@ h3 {
   animation: float-slow 10s ease-in-out infinite;
 }
 
+/* Keyword marquee — see Keywords.tsx. The track holds two identical copies
+   and slides one copy-width for a seamless loop. */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 34s linear infinite;
+}
+
 /* Scroll-reveal — see Reveal.tsx. Elements start hidden and settle in
    once observed; if JS never runs, the fallback keeps them visible. */
 .reveal {
@@ -101,6 +112,11 @@ h3 {
 
   .reveal {
     opacity: 1;
+    transform: none;
+  }
+
+  .animate-marquee {
+    animation: none;
     transform: none;
   }
 }

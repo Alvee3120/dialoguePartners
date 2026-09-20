@@ -156,9 +156,10 @@ export default function AboutPage() {
             </p>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/75">
               We believe transformation doesn&rsquo;t come from top-down
-              mandates or one-off audits. It comes from sustained engagement:
-              real conversations between the people who set standards and the
-              people who have to meet them.
+              mandates or one-off audits. It comes from sustained engagement,
+              conversations &amp; commitments for real change. We act as a
+              catalyst, aiming to be The North Star of Bangladesh&rsquo;s RMG
+              industry.
             </p>
           </div>
         </Container>

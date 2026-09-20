@@ -19,11 +19,11 @@ function Headshot({ person }: { person: Person }) {
 
 export default function PeopleCard({ person }: { person: Person }) {
   return (
-    <article className="overflow-hidden rounded-3xl border border-line bg-white">
+    <article className="overflow-hidden rounded-xl border border-line bg-white">
       <Link href={`/people/${person.slug}`} className="block" aria-label={`Profile of ${person.name}`}>
         <Headshot person={person} />
-        <div className="p-6">
-          <h3 className="font-serif text-lg font-semibold tracking-tight text-ink">
+        <div className="p-5">
+          <h3 className="text-[18px] font-semibold tracking-tight text-ink">
             {person.name}
           </h3>
           <p className="mt-1 text-sm text-foreground">{person.position}</p>
@@ -32,7 +32,7 @@ export default function PeopleCard({ person }: { person: Person }) {
           </p>
         </div>
       </Link>
-      <div className="px-6 pb-6">
+      <div className="px-5 pb-5">
         <SocialLinks socials={person.socials} compact />
       </div>
     </article>

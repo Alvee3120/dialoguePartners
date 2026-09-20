@@ -36,3 +36,12 @@
 - Prefers compact icon+heading cards in feature/values grids, with the descriptive paragraph removed entirely rather than shortened (explicitly: "just keep the heading, no description"). Confidence: 0.6
 - Wants "dark" surfaces/sections to use the brand logo navy (#173A5E) instead of black or near-black — the brand colour should carry through backgrounds, overlays/scrims, and dark bands, not just accents. Confidence: 0.8
 - Wants related cards/boxes on a page grouped so they can all be seen together at once (within a single viewport / above the fold) — prefers tightening headers, padding, and cell content to fit them in, rather than tall separated blocks that require scrolling. Confidence: 0.6
+- Works from versioned, structured content briefs (labelled "v2 — Updated") supplied as the project's single source of truth: a new version supersedes the earlier draft, and expects the whole implementation to be reconciled to it — including hunting down stale hardcoded references sitewide (e.g. "four pillars" strings, counts in stats/FAQs/metadata, renamed nav labels) rather than only editing the primary data file. Confidence: 0.7
+- When the agent surfaces clarifying decisions with a clear recommended default, tends to accept the recommended options as a batch rather than over-specifying. Confidence: 0.6
+- Prefers header nav submenus (e.g. the "Insight" item listing the pillars) to open on hover rather than on click. Confidence: 0.55
+- Wants menu/dropdown entries to fit on a single line each: long labels must not wrap, so the submenu panel should size to its widest item (e.g. w-max + whitespace-nowrap) rather than being forced to a fixed narrow width. Confidence: 0.5
+- Prefers a geometric sans-serif typeface for headings (switched from the serif Playfair Display to Urbanist), with a single family driving both body and headings rather than a serif/sans pairing. Confidence: 0.65
+- Prefers flat, solid section backgrounds in alternating light bands (white / paper) with a single dark navy band, over gradient washes and decorative blob shapes. Confidence: 0.6
+- Prefers subtly rounded card corners (~10-12px, `rounded-xl`) over heavily rounded ones (~24px, `rounded-3xl`). Confidence: 0.6
+- Prefers pill-shaped buttons with a trailing arrow, defined once as a shared class helper/variant set rather than repeated inline button classNames. Confidence: 0.55
+- Prefers a wide content column — container max-w-7xl rather than a narrower max-w-6xl. Confidence: 0.5

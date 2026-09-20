@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Logo from "./Logo";
+import { corePillars } from "@/data/corePillars";
 
 const leftNav = [
   { label: "Who We Are", href: "/about" },
@@ -11,8 +12,8 @@ const leftNav = [
 ];
 
 const rightNav = [
-  { label: "Insights", href: "/pillars" },
-  { label: "People", href: "/people" },
+  { label: "Insight", href: "/pillars", dropdown: true },
+  { label: "People", href: "/people", dropdown: false },
 ];
 
 export default function SiteHeader() {
@@ -78,13 +79,53 @@ export default function SiteHeader() {
               overHero ? "text-white/85" : "text-ink/80"
             }`}
           >
-            {rightNav.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className={navLinkClass}>
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {rightNav.map((link) =>
+              link.dropdown ? (
+                <li key={link.href} className="group relative">
+                  <Link
+                    href={link.href}
+                    aria-haspopup="true"
+                    className={`inline-flex items-center gap-1.5 ${navLinkClass}`}
+                  >
+                    {link.label}
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                      className="size-3.5 transition-transform duration-300 group-hover:rotate-180 motion-reduce:transition-none"
+                    >
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </Link>
+
+                  {/* Pillar submenu — opens on hover and keyboard focus */}
+                  <div className="pointer-events-none absolute left-0 top-full z-50 w-max translate-y-1 pt-5 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100 motion-reduce:transition-none">
+                    <ul className="overflow-hidden rounded-2xl border border-line bg-white p-2 shadow-xl shadow-navy/10">
+                      {corePillars.map((pillar) => (
+                        <li key={pillar.slug}>
+                          <Link
+                            href={`/pillars/${pillar.slug}`}
+                            className="block whitespace-nowrap rounded-xl px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-paper hover:text-accent-deep"
+                          >
+                            {pillar.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </li>
+              ) : (
+                <li key={link.href}>
+                  <Link href={link.href} className={navLinkClass}>
+                    {link.label}
+                  </Link>
+                </li>
+              )
+            )}
           </ul>
           <Link
             href="/contact"

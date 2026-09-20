@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Container from "@/components/site/Container";
+import { buttonAccent, buttonGhostLight } from "@/components/site/button";
 import { aboutStats } from "@/data/about";
 
 const VIDEO_URL =
@@ -45,29 +46,23 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-br from-accent-deep/15 via-transparent to-transparent" />
 
       <Container className="relative z-10 flex min-h-svh flex-col items-center justify-center pt-32 pb-16 text-center">
-        <p className="animate-fade-in-up text-xs font-semibold uppercase tracking-[0.3em] text-accent-bright">
+        <p className="animate-fade-in-up text-xs font-semibold uppercase tracking-[0.25em] text-accent-bright">
           Ecosystem Catalyst | The North Star for Bangladesh&rsquo;s RMG Transformation
         </p>
-        <h1 className="animate-fade-in-up mt-6 max-w-4xl text-5xl font-semibold leading-[1.05] tracking-tight text-white [animation-delay:120ms] sm:text-7xl">
+        <h1 className="animate-fade-in-up mt-5 max-w-4xl text-[36px] font-semibold leading-[1.06] tracking-tight text-white [animation-delay:120ms] sm:text-[52px] lg:text-[64px]">
           Connecting Through Conversation
         </h1>
-        <p className="animate-fade-in-up mt-7 max-w-2xl text-lg leading-relaxed text-white/85 [animation-delay:240ms] sm:text-xl">
+        <p className="animate-fade-in-up mt-6 max-w-2xl text-base leading-relaxed text-white/85 [animation-delay:240ms] sm:text-lg">
           Dialogue Partners is the ecosystem catalyst guiding Bangladesh&rsquo;s
           Ready-Made Garments sector from cost-driven manufacturing to a
           high-value, sustainable, and digitally connected industry.
         </p>
-        <div className="animate-fade-in-up mt-10 flex flex-wrap items-center justify-center gap-4 [animation-delay:360ms]">
-          <Link
-            href="/pillars"
-            className="inline-flex items-center gap-2 rounded-full bg-accent-deep px-8 py-4 text-base font-semibold text-white transition-all duration-300 hover:bg-navy hover:shadow-lg hover:shadow-accent/30"
-          >
+        <div className="animate-fade-in-up mt-9 flex flex-wrap items-center justify-center gap-4 [animation-delay:360ms]">
+          <Link href="/pillars" className={buttonAccent}>
             Explore Our Pillars
             {arrowIcon}
           </Link>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 rounded-full border border-white/40 px-8 py-4 text-base font-medium text-white transition-all duration-300 hover:border-white hover:bg-white/10"
-          >
+          <Link href="/contact" className={buttonGhostLight}>
             Talk to an Advisor
           </Link>
         </div>
@@ -75,7 +70,7 @@ export default function Hero() {
         <dl className="animate-fade-in-up mt-16 grid w-full max-w-2xl grid-cols-2 gap-x-6 gap-y-8 border-t border-white/15 pt-10 [animation-delay:480ms] sm:grid-cols-4">
           {aboutStats.map((stat) => (
             <div key={stat.label} className="flex flex-col items-center gap-1.5 text-center">
-              <dd className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              <dd className="text-[26px] font-semibold tracking-tight text-white sm:text-[32px]">
                 {stat.value}
               </dd>
               <dt className="text-xs leading-snug text-white/60">{stat.label}</dt>
