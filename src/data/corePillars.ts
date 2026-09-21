@@ -26,6 +26,8 @@ export type CorePillar = {
   groups: ServiceGroup[];
   /** Phosphor icon name (PascalCase, matches @phosphor-icons/react export). */
   icon: "Leaf" | "Circuitry" | "HandHeart" | "Gauge" | "Scales";
+  /** Remote image URL used on the home pillar cards. */
+  image: string;
 };
 
 export const corePillars: CorePillar[] = [
@@ -41,6 +43,8 @@ export const corePillars: CorePillar[] = [
     intro:
       "Every sustainability journey needs a starting point grounded in reality, not only aspiration. We work with manufacturers to build the strategy where sustainability is embedded as a business offer. We help partners bridge the critical gap between ambitious sustainability commitments and execution on the factory floor. By aligning corporate vision with actionable science and human-centric operational strategies, we help businesses build credible, future-ready operations that satisfy evolving global standards while driving long-term efficiency.",
     icon: "Leaf",
+    image:
+      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/climet.jpg",
     groups: [
       {
         title: "Building Strategy",
@@ -144,6 +148,8 @@ export const corePillars: CorePillar[] = [
     intro:
       "Achieving meaningful sustainability requires integrating modern, clean technologies directly into manufacturing operations. Adopting advanced technological solutions allows apparel producers to reduce environmental impact while enhancing factory productivity and cost-efficiency. At Dialogue Partners, we connect manufacturers with cutting-edge clean tech solutions tailored for industrial scale. We evaluate, implement, and optimize technology deployments across critical resource areas, ensuring your facilities achieve measurable operational gains and meet global environmental standards.",
     icon: "Circuitry",
+    image:
+      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/techandinnova.jpg",
     groups: [
       {
         title: "Where We Deploy",
@@ -199,6 +205,8 @@ export const corePillars: CorePillar[] = [
     intro:
       "We help manufacturers turn responsible business conduct and due diligence into a credible, audit-ready practice — so regulation becomes proof of readiness, not a liability.",
     icon: "HandHeart",
+    image:
+      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/social.jpg",
     groups: [
       {
         title: "Our Areas of Work",
@@ -240,6 +248,8 @@ export const corePillars: CorePillar[] = [
     intro:
       "Achieving long-term competitiveness in apparel manufacturing requires building resilient, high-efficiency operations that align with global compliance standards. Operational excellence is driven by continuous improvement across the shop floor, strategic market positioning, and ethical business management. At Dialogue Partners, we work directly with manufacturers to streamline production systems, drive product innovation, and implement responsible operational practices. By bridging performance gaps with advanced automation and sustainable management models, we help factories maximize output while maintaining high standards of integrity and buyer trust.",
     icon: "Gauge",
+    image:
+      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/operational.jpg",
     groups: [
       {
         title: "Our Areas of Work",
@@ -288,6 +298,7 @@ export const corePillars: CorePillar[] = [
     intro:
       "Navigating LDC graduation and a rapidly changing global market requires proactive policy alignment and resilient trade frameworks. Building a future-ready RMG ecosystem depends on bridging the gaps between national policy, global regulatory shifts, and ground-level manufacturing realities. We continuously connect regulatory bodies, international buyers, and strategic partners to shape forward-thinking policies that prepare the market for future trade dynamics.\n\nAt Dialogue Partners, we engage across the broader business ecosystem to drive strategic advocacy and policy formulation. We collaborate with international stakeholders, industry bodies, and financial partners to create sustainable trade pathways, secure competitive market access, and build financial structures that support long-term economic growth.",
     icon: "Scales",
+    image: "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/trade.jpg",
     groups: [
       {
         title: "Our Areas of Work",

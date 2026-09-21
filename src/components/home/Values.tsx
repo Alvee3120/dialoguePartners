@@ -1,12 +1,19 @@
 import Link from "next/link";
 import Container from "@/components/site/Container";
-import ValuesGrid from "@/components/shared/ValuesGrid";
+import ValueCards from "@/components/shared/ValueCards";
 import Reveal from "@/components/site/Reveal";
 
 export default function Values() {
   return (
-    <section className="bg-paper py-20 sm:py-28">
-      <Container>
+    <section className="relative overflow-hidden bg-paper py-20 sm:py-28">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <div className="absolute -left-40 -top-40 size-[30rem] rounded-full border border-accent/15" />
+        <div className="absolute -right-40 -top-40 size-[30rem] rounded-full border border-accent/15" />
+        <div className="absolute -bottom-40 -left-40 size-[30rem] rounded-full border border-accent/15" />
+        <div className="absolute -bottom-40 -right-40 size-[30rem] rounded-full border border-accent/15" />
+      </div>
+
+      <Container className="relative">
         <Reveal className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-deep">
             Our Values
@@ -21,9 +28,9 @@ export default function Values() {
           </p>
         </Reveal>
 
-        <Reveal delay={120} className="mt-12">
-          <ValuesGrid />
-        </Reveal>
+        <div className="mt-12">
+          <ValueCards />
+        </div>
 
         <div className="mt-10 text-center">
           <Link

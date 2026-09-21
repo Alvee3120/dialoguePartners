@@ -4,7 +4,7 @@ import Container from "@/components/site/Container";
 import Reveal from "@/components/site/Reveal";
 
 const IMAGE_URL =
-  "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/ChatGPT%20Image%20Sep%2020%2C%202026%2C%2003_34_21%20PM.png";
+  "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/whoWeare.png";
 
 export default function WhoWeAre() {
   return (

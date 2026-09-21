@@ -4,7 +4,12 @@ export type Value = {
   name: string;
   expanded: string;
   icon: "eye" | "bulb" | "route" | "activity";
+  /** Remote image URL for the value card. */
+  image: string;
 };
+
+const VALUE_IMAGE =
+  "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/Gemini_Generated_Image_r4qn42r4qn42r4qn.jpeg";
 
 const values: Value[] = [
   {
@@ -12,24 +17,28 @@ const values: Value[] = [
     expanded:
       "We believe trust is built through openness, not polish. We share data honestly, communicate risk clearly, and hold ourselves to the same standards of accountability we ask of our clients.",
     icon: "eye",
+    image: VALUE_IMAGE,
   },
   {
     name: "Innovation",
     expanded:
       "The RMG sector's next chapter will be won by those willing to rethink old models. We bring fresh, technology-enabled, forward-looking approaches to challenges the industry has historically treated as fixed costs of doing business.",
     icon: "bulb",
+    image: VALUE_IMAGE,
   },
   {
     name: "Simplicity",
     expanded:
       "Regulatory frameworks, ESG reporting standards, and digital transformation roadmaps can be overwhelming. We specialize in cutting through that complexity and giving our partners a clear, sequenced path forward.",
     icon: "route",
+    image: VALUE_IMAGE,
   },
   {
     name: "Vitality",
     expanded:
       "Bangladesh's RMG sector employs millions and anchors the national economy. The pace of change happening around it — climate policy, trade shifts, automation — is not slowing down. We match that pace with energy, responsiveness, and a bias toward action.",
     icon: "activity",
+    image: VALUE_IMAGE,
   },
 ];
 
