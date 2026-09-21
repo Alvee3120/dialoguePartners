@@ -238,7 +238,7 @@ export const people: Person[] = [
       { imagePath: galleryImage("IMG_0283.MOV") },
     ],
     socials: {
-      linkedin: "http://www.linkedin.com/in/ziaur-rahman-bddh",
+      linkedin: "https://www.linkedin.com/in/ziaur-rahman-bangladesh/",
       email: "zia.bddh@gmail.com",
     },
   },
