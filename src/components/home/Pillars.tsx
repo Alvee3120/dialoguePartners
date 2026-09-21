@@ -69,7 +69,7 @@ function PillarCard({ pillar }: { pillar: CorePillar }) {
               vectorEffect="non-scaling-stroke"
             />
           </svg>
-          <span className="absolute left-1/2 top-[61%] flex size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-gold text-navy shadow-md">
+          <span className="absolute left-1/2 top-[61%] flex size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-accent-soft text-accent-deep shadow-md">
             <Icon size={22} weight="bold" aria-hidden="true" />
           </span>
         </div>

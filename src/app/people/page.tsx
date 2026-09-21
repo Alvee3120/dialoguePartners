@@ -22,7 +22,7 @@ export default function PeoplePage() {
         </Container>
       </section>
 
-      <section className="py-16 sm:py-24">
+      <section className="bg-paper py-16 sm:py-24">
         <Container>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {people.map((person) => (

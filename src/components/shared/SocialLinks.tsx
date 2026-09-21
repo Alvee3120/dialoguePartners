@@ -54,7 +54,7 @@ export default function SocialLinks({ socials, compact = false }: SocialLinksPro
             aria-label={item.label}
             className={
               compact
-                ? "flex size-9 items-center justify-center rounded-full border border-line text-foreground transition-colors hover:border-accent-deep hover:text-accent-deep"
+                ? "flex size-9 items-center justify-center rounded-lg border border-line text-navy transition-colors hover:border-accent-deep hover:text-accent-deep"
                 : "inline-flex items-center gap-2 rounded-full border border-line px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:border-accent-deep hover:text-accent-deep"
             }
           >

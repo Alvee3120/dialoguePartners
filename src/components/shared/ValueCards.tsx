@@ -24,26 +24,8 @@ function ValueCard({ value }: { value: (typeof values)[number] }) {
           {value.name}
         </h3>
         <p className="mt-3 text-sm leading-relaxed text-foreground">
-          {value.expanded}
+          {value.summary}
         </p>
-
-        <span
-          aria-hidden="true"
-          className="mt-auto flex size-9 shrink-0 items-center justify-center self-end rounded-full border border-line text-accent-deep transition-colors duration-300 group-hover:border-accent group-hover:bg-accent-soft"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="size-4"
-          >
-            <path d="M5 12h14" />
-            <path d="m13 6 6 6-6 6" />
-          </svg>
-        </span>
       </div>
     </article>
   );
