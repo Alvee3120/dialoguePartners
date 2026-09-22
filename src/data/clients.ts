@@ -15,16 +15,4 @@ export const clients: Client[] = [
     name: "H&M",
     logo: "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/H%26M-Logo.svg",
   },
-  {
-    name: "DBL",
-    logo: "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/dbllogo.png",
-  },
-  {
-    name: "Ananta",
-    logo: "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/anatalogo.jpeg",
-  },
-  {
-    name: "Hameem",
-    logo: "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/hameem%20logo.jpeg",
-  },
 ];

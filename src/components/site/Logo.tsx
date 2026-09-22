@@ -1,12 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
+import { site } from "@/data/site";
 
-export default function Logo() {
+type LogoProps = {
+  /** Use on dark surfaces so the mark and wordmark render in white. */
+  inverted?: boolean;
+};
+
+export default function Logo({ inverted = false }: LogoProps) {
   return (
     <Link
       href="/"
-      className="flex items-center"
-      aria-label="Dialogue Partners — home"
+      className="flex items-center gap-3"
+      aria-label={`${site.name} — home`}
     >
       <Image
         src="/images/logo.svg"
@@ -14,8 +20,24 @@ export default function Logo() {
         width={661}
         height={429}
         loading="eager"
-        className="h-10 w-auto"
+        className={`h-9 w-auto ${inverted ? "brightness-0 invert" : ""}`}
       />
+      <span className="flex flex-col leading-none">
+        <span
+          className={`text-[15px] font-bold uppercase tracking-[0.12em] ${
+            inverted ? "text-white" : "text-navy"
+          }`}
+        >
+          {site.name}
+        </span>
+        <span
+          className={`mt-1 text-[9px] font-semibold uppercase tracking-[0.2em] ${
+            inverted ? "text-white" : "text-accent-deep"
+          }`}
+        >
+          People | Insight | Impact
+        </span>
+      </span>
     </Link>
   );
 }

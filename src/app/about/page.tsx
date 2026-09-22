@@ -1,14 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Container from "@/components/site/Container";
 import ImageSlot from "@/components/site/ImageSlot";
 import SectionHeading from "@/components/site/SectionHeading";
-import EcosystemMap from "@/components/shared/EcosystemMap";
 import ValuesGrid, { values } from "@/components/shared/ValuesGrid";
 import AboutHero from "@/components/about/AboutHero";
-import FaqSection from "@/components/about/FaqSection";
-import { faqCategories, faqs } from "@/data/about";
-import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Who We Are",
@@ -70,32 +65,25 @@ export default function AboutPage() {
       {/* Our Role */}
       <section className="py-20 sm:py-28">
         <Container>
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent-deep">
-                Our Role
-              </p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl">
-                Four stakeholders. One connected ecosystem.
-              </h2>
-              <div className="mt-5 space-y-4 text-lg leading-relaxed text-foreground">
-                <p>
-                  Dialogue Partners was founded to be the North Star for this
-                  transformation. We sit at the intersection of global brands,
-                  local manufacturers, and technology leaders, bridging gaps and
-                  creating leverage for the coming decades.
-                </p>
-                <p>
-                  Global standards, local capability, capital, and regulation all
-                  have to move together. Our role is to connect the people
-                  responsible for each of them and turn conversation into
-                  deliverable strategy.
-                </p>
-              </div>
-            </div>
-            <div>
-              <EcosystemMap />
-            </div>
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent-deep">
+            Our Role
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl">
+            All stakeholders. One connected ecosystem.
+          </h2>
+          <div className="mt-5 space-y-4 text-lg leading-relaxed text-foreground">
+            <p>
+              Dialogue Partners was founded to be the North Star for this
+              transformation. We sit at the intersection of global brands,
+              local manufacturers, and technology leaders, bridging gaps and
+              creating leverage for the coming decades.
+            </p>
+            <p>
+              Global standards, local capability, capital, and regulation all
+              have to move together. Our role is to connect the people
+              responsible for each of them and turn conversation into
+              deliverable strategy.
+            </p>
           </div>
         </Container>
       </section>
@@ -143,35 +131,6 @@ export default function AboutPage() {
               catalyst, aiming to be The North Star of Bangladesh&rsquo;s RMG
               industry.
             </p>
-          </div>
-        </Container>
-      </section>
-
-      <FaqSection categories={faqCategories} faqs={faqs} />
-
-      {/* Call to action */}
-      <section className="bg-navy py-16 sm:py-20">
-        <Container className="flex flex-col items-center text-center">
-          <h2 className="max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            Let&rsquo;s start a conversation
-          </h2>
-          <p className="mt-4 max-w-xl leading-relaxed text-white/70">
-            Tell us where you want to take the RMG sector next. We are
-            listening.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Link
-              href="/contact"
-              className="rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-accent-soft"
-            >
-              Talk to an Advisor
-            </Link>
-            <a
-              href={`mailto:${site.email}`}
-              className="rounded-full border border-white/30 px-7 py-3.5 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/10"
-            >
-              {site.email}
-            </a>
           </div>
         </Container>
       </section>

@@ -20,17 +20,21 @@ export default function Clients() {
           </p>
         </Reveal>
 
-        <div className="mt-10 grid grid-cols-2 items-center gap-4 sm:grid-cols-3 lg:grid-cols-4 lg:gap-5">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-5">
           {clients.map((client, i) => (
-            <Reveal key={client.name} delay={i * 70}>
+            <Reveal
+              key={client.name}
+              delay={i * 70}
+              className="w-full max-w-[280px]"
+            >
               <div className="relative flex aspect-[3/2] items-center justify-center overflow-hidden rounded-xl border border-line bg-white p-4">
                 {client.logo ? (
                   <Image
                     src={client.logo}
                     alt={client.name}
                     fill
-                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-                    className="object-contain p-6"
+                    sizes="280px"
+                    className="object-contain p-8"
                   />
                 ) : (
                   <div className="text-center">

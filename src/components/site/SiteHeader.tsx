@@ -3,17 +3,29 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { CaretDown } from "@phosphor-icons/react";
 import Logo from "./Logo";
 import { corePillars } from "@/data/corePillars";
 
-const leftNav = [
+type NavItem = {
+  label: string;
+  href: string;
+  children?: { label: string; href: string }[];
+};
+
+const navItems: NavItem[] = [
   { label: "Who We Are", href: "/about" },
   { label: "Values", href: "/values" },
-];
-
-const rightNav = [
-  { label: "Insight", href: "/pillars", dropdown: true },
-  { label: "People", href: "/people", dropdown: false },
+  {
+    label: "Insight",
+    href: "/pillars",
+    children: corePillars.map((pillar) => ({
+      label: pillar.title,
+      href: `/pillars/${pillar.slug}`,
+    })),
+  },
+  { label: "People", href: "/people" },
+  { label: "Career", href: "/career" },
 ];
 
 export default function SiteHeader() {
@@ -32,9 +44,9 @@ export default function SiteHeader() {
   // surfaces and keeps the ink palette.
   const overHero = pathname === "/" && !scrolled;
 
-  const navLinkClass = overHero
-    ? "transition-colors hover:text-white"
-    : "transition-colors hover:text-accent-deep";
+  const linkClass = overHero
+    ? "text-white/85 hover:text-white"
+    : "text-ink/80 hover:text-accent-deep";
 
   return (
     <header
@@ -44,92 +56,61 @@ export default function SiteHeader() {
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:grid lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:px-8">
-        {/* Left nav group (desktop) */}
-        <ul
-          className={`hidden items-center gap-7 text-sm font-medium lg:flex lg:justify-start ${
-            overHero ? "text-white/85" : "text-ink/80"
-          }`}
-        >
-          {leftNav.map((link) => (
-            <li key={link.href}>
-              <Link href={link.href} className={navLinkClass}>
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        {/* Mobile spacer */}
-        <div className="lg:hidden" />
-
-        {/* Center logo — inverted to white while it overlaps the hero video */}
-        <div
-          className={`flex justify-center ${
-            overHero ? "brightness-0 invert" : ""
-          }`}
-        >
-          <Logo />
+      <nav className="mx-auto grid h-20 w-full max-w-7xl grid-cols-[1fr_auto] items-center gap-6 px-4 sm:px-6 lg:grid-cols-[1fr_auto_1fr] lg:px-8">
+        {/* Logo */}
+        <div className="flex items-center">
+          <Logo inverted={overHero} />
         </div>
 
-        {/* Right nav group + CTA (desktop) */}
-        <div className="hidden items-center gap-7 lg:flex lg:justify-end">
-          <ul
-            className={`flex items-center gap-7 text-sm font-medium ${
-              overHero ? "text-white/85" : "text-ink/80"
-            }`}
-          >
-            {rightNav.map((link) =>
-              link.dropdown ? (
-                <li key={link.href} className="group relative">
-                  <Link
-                    href={link.href}
-                    aria-haspopup="true"
-                    className={`inline-flex items-center gap-1.5 ${navLinkClass}`}
-                  >
-                    {link.label}
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                      className="size-3.5 transition-transform duration-300 group-hover:rotate-180 motion-reduce:transition-none"
-                    >
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
-                  </Link>
+        {/* Primary nav — centred between logo and CTA */}
+        <ul className="hidden items-center justify-center gap-8 text-sm font-medium lg:flex">
+          {navItems.map((item) =>
+            item.children ? (
+              <li key={item.href} className="group relative">
+                <Link
+                  href={item.href}
+                  aria-haspopup="true"
+                  className={`inline-flex items-center gap-1.5 transition-colors ${linkClass}`}
+                >
+                  {item.label}
+                  <CaretDown
+                    weight="bold"
+                    aria-hidden="true"
+                    className="size-3 transition-transform duration-300 group-hover:rotate-180 motion-reduce:transition-none"
+                  />
+                </Link>
 
-                  {/* Pillar submenu — opens on hover and keyboard focus */}
-                  <div className="pointer-events-none absolute left-0 top-full z-50 w-max translate-y-1 pt-5 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100 motion-reduce:transition-none">
-                    <ul className="overflow-hidden rounded-2xl border border-line bg-white p-2 shadow-xl shadow-navy/10">
-                      {corePillars.map((pillar) => (
-                        <li key={pillar.slug}>
-                          <Link
-                            href={`/pillars/${pillar.slug}`}
-                            className="block whitespace-nowrap rounded-xl px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-paper hover:text-accent-deep"
-                          >
-                            {pillar.title}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </li>
-              ) : (
-                <li key={link.href}>
-                  <Link href={link.href} className={navLinkClass}>
-                    {link.label}
-                  </Link>
-                </li>
-              )
-            )}
-          </ul>
+                {/* Submenu — opens on hover and keyboard focus */}
+                <div className="pointer-events-none absolute left-1/2 top-full z-50 w-max -translate-x-1/2 translate-y-1 pt-5 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100 motion-reduce:transition-none">
+                  <ul className="overflow-hidden rounded-2xl border border-line bg-white p-2 shadow-xl shadow-navy/10">
+                    {item.children.map((child) => (
+                      <li key={child.href}>
+                        <Link
+                          href={child.href}
+                          className="block whitespace-nowrap rounded-xl px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-paper hover:text-accent-deep"
+                        >
+                          {child.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            ) : (
+              <li key={item.href}>
+                <Link href={item.href} className={`transition-colors ${linkClass}`}>
+                  {item.label}
+                </Link>
+              </li>
+            ),
+          )}
+        </ul>
+
+        {/* CTA (desktop) */}
+        <div className="hidden justify-end lg:flex">
           <Link
             href="/contact"
-            className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-colors ${
+            className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors ${
               overHero
                 ? "bg-white text-ink hover:bg-white/90"
                 : "bg-navy text-white hover:bg-navy-soft"
@@ -176,16 +157,30 @@ export default function SiteHeader() {
               />
             </svg>
           </summary>
-          <div className="absolute right-0 top-full mt-2 w-64 rounded-2xl border border-line bg-white p-2 shadow-lg">
+          <div className="absolute right-0 top-full mt-2 max-h-[70svh] w-72 overflow-y-auto rounded-2xl border border-line bg-white p-2 shadow-lg">
             <ul className="flex flex-col">
-              {[...leftNav, ...rightNav].map((link) => (
-                <li key={link.href}>
+              {navItems.map((item) => (
+                <li key={item.href}>
                   <Link
-                    href={link.href}
-                    className="block rounded-lg px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-paper"
+                    href={item.href}
+                    className="block rounded-lg px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-paper"
                   >
-                    {link.label}
+                    {item.label}
                   </Link>
+                  {item.children ? (
+                    <ul className="mb-1 flex flex-col border-l border-line pl-3 ml-4">
+                      {item.children.map((child) => (
+                        <li key={child.href}>
+                          <Link
+                            href={child.href}
+                            className="block rounded-lg px-3 py-2 text-sm text-foreground transition-colors hover:bg-paper"
+                          >
+                            {child.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
                 </li>
               ))}
               <li className="mt-1 border-t border-line pt-2">
