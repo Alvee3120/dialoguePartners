@@ -1,0 +1,92 @@
+/* =========================================
+   OUR ROLE SECTION — structural / positioning
+   (colour + typography follow the site's Tailwind tokens)
+========================================= */
+
+.roleSection {
+  background-size: cover;
+  background-position: center center;
+}
+
+/* =========================================
+   CONNECTOR CURVE
+========================================= */
+
+.connector {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: none;
+}
+
+.connectorDashed {
+  fill: none;
+  stroke: rgba(103, 214, 217, 0.85);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 6;
+}
+
+.connectorSolid {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.85);
+  stroke-width: 1.5;
+}
+
+.connectorDot {
+  fill: #4fd0d6;
+}
+
+/* =========================================
+   STAKEHOLDER CARDS
+========================================= */
+
+.cards {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  width: 100%;
+}
+
+/* =========================================
+   RESPONSIVE — desktop switches to the
+   absolute, curve-connected layout
+========================================= */
+
+@media (min-width: 1024px) {
+  .connector {
+    display: block;
+  }
+
+  .cards {
+    position: absolute;
+    inset: 0;
+    display: block;
+  }
+
+  .card {
+    position: absolute;
+    width: 250px;
+  }
+
+  .card-global {
+    top: 6%;
+    right: 6%;
+  }
+
+  .card-local {
+    top: 40%;
+    left: 0;
+  }
+
+  .card-tech {
+    bottom: 10%;
+    right: 4%;
+  }
+}

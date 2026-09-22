@@ -4,6 +4,7 @@ import ImageSlot from "@/components/site/ImageSlot";
 import SectionHeading from "@/components/site/SectionHeading";
 import ValuesGrid, { values } from "@/components/shared/ValuesGrid";
 import AboutHero from "@/components/about/AboutHero";
+import OurRoleSection from "@/components/about/OurRoleSection";
 
 export const metadata: Metadata = {
   title: "Who We Are",
@@ -63,30 +64,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Role */}
-      <section className="py-20 sm:py-28">
-        <Container>
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent-deep">
-            Our Role
-          </p>
-          <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl">
-            All stakeholders. One connected ecosystem.
-          </h2>
-          <div className="mt-5 space-y-4 text-lg leading-relaxed text-foreground">
-            <p>
-              Dialogue Partners was founded to be the North Star for this
-              transformation. We sit at the intersection of global brands,
-              local manufacturers, and technology leaders, bridging gaps and
-              creating leverage for the coming decades.
-            </p>
-            <p>
-              Global standards, local capability, capital, and regulation all
-              have to move together. Our role is to connect the people
-              responsible for each of them and turn conversation into
-              deliverable strategy.
-            </p>
-          </div>
-        </Container>
-      </section>
+      <OurRoleSection />
 
       {/* Our Work */}
       <section className="bg-paper py-20 sm:py-28">
@@ -109,6 +87,7 @@ export default function AboutPage() {
             <ImageSlot
               description="Dialogue Partners convening global brands, local manufacturers, and technology partners around one table"
               suggestedPath="/images/about/what-we-do.jpg"
+              url="https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/151A7580.jpg"
             />
           </div>
         </Container>

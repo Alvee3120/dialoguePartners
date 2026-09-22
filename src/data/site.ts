@@ -12,6 +12,8 @@ export const site = {
     "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/Hero-DialoguePartners.mp4",
   footerBackground:
     "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/footerbg.png",
+  roleBackground:
+    "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/ourrolebg.png",
 };
 
 // Top-level navigation — one entry per dedicated page.

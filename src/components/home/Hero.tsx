@@ -91,19 +91,6 @@ export default function Hero() {
         </Container>
       </div>
 
-      {/* Scroll hint */}
-      <div
-        aria-hidden="true"
-        className="relative z-10 flex flex-col items-center gap-2 pb-6 pt-5 text-white/55"
-      >
-        <span className="flex h-8 w-5 items-start justify-center rounded-full border border-white/40 pt-1.5">
-          <span className="size-1 animate-bounce rounded-full bg-white/70 motion-reduce:animate-none" />
-        </span>
-        <span className="text-[10px] font-semibold uppercase tracking-[0.2em]">
-          Scroll to Explore
-        </span>
-      </div>
-
       {/* Floating highlight card */}
       <Link
         href="/about"
