@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Container from "@/components/site/Container";
 import PageHeader from "@/components/shared/PageHeader";
-import ValuesGrid, { values } from "@/components/shared/ValuesGrid";
+import ValuesGrid from "@/components/shared/ValuesGrid";
+import MottoBanner from "@/components/shared/MottoBanner";
 import Reveal from "@/components/site/Reveal";
-import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Values",
@@ -32,26 +32,7 @@ export default function ValuesPage() {
         <Container>
           <ValuesGrid />
 
-          <div className="mt-12 grid gap-8 sm:grid-cols-2">
-            {values.map((value, i) => (
-              <Reveal key={value.name} delay={i * 90}>
-                <div className="rounded-3xl border border-line bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-accent/10 motion-reduce:hover:translate-y-0 sm:p-8">
-                  <p className="text-xl font-semibold tracking-tight text-ink">
-                    {value.name}
-                  </p>
-                  <p className="mt-3 leading-relaxed text-foreground">
-                    {value.expanded}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-
-          <Reveal className="mx-auto mt-16 max-w-3xl rounded-3xl bg-gradient-to-br from-navy to-navy-deep px-8 py-10 text-center shadow-xl shadow-navy/15 sm:px-12 sm:py-14">
-            <p className="text-2xl font-medium leading-snug tracking-tight text-white sm:text-3xl">
-              &ldquo;{site.motto}&rdquo;
-            </p>
-          </Reveal>
+          <MottoBanner className="mt-16" />
 
           <div className="mt-10 text-center">
             <Link

@@ -1,4 +1,6 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
+import Reveal from "@/components/site/Reveal";
 
 export type Value = {
   name: string;
@@ -96,17 +98,33 @@ export function ValueIcon({ name }: { name: Value["icon"] }) {
 
 export default function ValuesGrid() {
   return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      {values.map((value) => (
-        <div
-          key={value.name}
-          className="group rounded-xl border border-line bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg motion-reduce:hover:translate-y-0"
-        >
-          <span className="inline-flex size-12 items-center justify-center rounded-xl bg-accent-soft text-accent-deep transition-transform duration-300 group-hover:scale-110">
-            <ValueIcon name={value.icon} />
-          </span>
-          <h3 className="mt-4 text-[18px] font-semibold text-ink">{value.name}</h3>
-        </div>
+    <div className="grid gap-6 sm:grid-cols-2">
+      {values.map((value, i) => (
+        <Reveal key={value.name} delay={i * 90} className="h-full">
+          <article className="group relative flex h-full min-h-[18rem] flex-col overflow-hidden rounded-xl border border-accent/40 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-xl hover:shadow-navy/20 motion-reduce:hover:translate-y-0 sm:min-h-[20rem] sm:p-8">
+            <Image
+              src={value.image}
+              alt=""
+              fill
+              sizes="(min-width: 640px) 50vw, 100vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-r from-navy-deep/90 via-navy-deep/65 to-navy-deep/20"
+            />
+
+            <div className="relative">
+              <h2 className="text-[26px] font-semibold leading-tight tracking-tight text-white sm:text-3xl">
+                {value.name}
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-white/85 sm:text-base">
+                {value.expanded}
+              </p>
+            </div>
+          </article>
+        </Reveal>
       ))}
     </div>
   );

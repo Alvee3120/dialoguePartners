@@ -8,12 +8,15 @@ export const site = {
   phone: "+880 xxx xxx xxx",
   city: "Dhaka, Bangladesh",
   address: "House 34, Road 115, Gulshan 2, Dhaka, Bangladesh",
+  mottoKicker: "Stronger People. A More Sustainable Tomorrow.",
   heroVideo:
     "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/Hero-DialoguePartners.mp4",
   footerBackground:
     "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/footerbg.png",
   roleBackground:
     "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/ourrolebg.png",
+  mottoBackground:
+    "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/motobg.png",
 };
 
 // Top-level navigation — one entry per dedicated page.
