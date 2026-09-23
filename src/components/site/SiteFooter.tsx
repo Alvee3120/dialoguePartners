@@ -45,8 +45,8 @@ export default function SiteFooter() {
       />
 
       <Container className="relative pt-14 pb-16">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr]">
-          <div>
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-2 md:gap-10 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr]">
+          <div className="col-span-2 md:col-span-1">
             <Logo inverted />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/75">
               A consultancy and ecosystem catalyst for the RMG sector — from
@@ -100,7 +100,7 @@ export default function SiteFooter() {
             </ul>
           </div>
 
-          <div>
+          <div className="col-span-2 md:col-span-1">
             <ColumnHeading>Contact</ColumnHeading>
             <ul className="mt-5 space-y-3.5 text-sm text-white/80">
               <li className="flex gap-3 leading-relaxed">
@@ -133,15 +133,6 @@ export default function SiteFooter() {
           <p>
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </p>
-          <div className="flex items-center gap-3">
-            <span aria-hidden="true" className="h-px w-10 bg-accent" />
-            <p className="text-sm leading-snug text-white/85">
-              <span className="block font-semibold text-white">
-                Stronger People
-              </span>
-              A More Sustainable Tomorrow.
-            </p>
-          </div>
         </div>
       </Container>
     </footer>

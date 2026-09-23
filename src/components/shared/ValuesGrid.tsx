@@ -20,7 +20,8 @@ const values: Value[] = [
     expanded:
       "We believe trust is built through openness, not polish. We share data honestly, communicate risk clearly, and hold ourselves to the same standards of accountability we ask of our clients.",
     icon: "eye",
-    image: "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/trans.png",
+    image:
+      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/tran-values.png",
   },
   {
     name: "Innovation",
@@ -29,7 +30,8 @@ const values: Value[] = [
     expanded:
       "The RMG sector's next chapter will be won by those willing to rethink old models. We bring fresh, technology-enabled, forward-looking approaches to challenges the industry has historically treated as fixed costs of doing business.",
     icon: "bulb",
-    image: "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/innov.png",
+    image:
+      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/innovation-values%20(1).png",
   },
   {
     name: "Simplicity",
@@ -108,11 +110,6 @@ export default function ValuesGrid() {
               fill
               sizes="(min-width: 640px) 50vw, 100vw"
               className="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-r from-navy-deep/90 via-navy-deep/65 to-navy-deep/20"
             />
 
             <div className="relative">

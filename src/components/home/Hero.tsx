@@ -71,17 +71,17 @@ export default function Hero() {
 
       {/* Stat strip */}
       <div className="relative z-10 border-t border-white/10 bg-navy-deep/40 backdrop-blur-sm">
-        <Container className="flex flex-wrap items-center gap-x-14 gap-y-6 py-6">
+        <Container className="flex flex-nowrap items-center justify-between gap-x-4 py-6 sm:justify-start sm:gap-x-14">
           {stats.map((stat) => {
             const Icon = stat.icon;
             return (
-              <div key={stat.label} className="flex items-center gap-3">
-                <Icon className="size-7 shrink-0 text-accent-bright" aria-hidden="true" />
+              <div key={stat.label} className="flex items-center gap-2 sm:gap-3">
+                <Icon className="size-6 shrink-0 text-accent-bright sm:size-7" aria-hidden="true" />
                 <div>
-                  <p className="text-xl font-semibold leading-none text-white">
+                  <p className="text-base font-semibold leading-none text-white sm:text-xl">
                     {stat.value}
                   </p>
-                  <p className="mt-1.5 text-[11px] font-medium uppercase tracking-[0.16em] text-white/55">
+                  <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.1em] text-white/55 sm:mt-1.5 sm:text-[11px] sm:tracking-[0.16em]">
                     {stat.label}
                   </p>
                 </div>
