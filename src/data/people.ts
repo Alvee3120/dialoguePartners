@@ -1,10 +1,10 @@
 // Team / advisors directory.
-// The slugs are stable, so pages will not need restructuring later.
+// Slugs are the kebab-case of each person's name, so profile URLs read as
+// /people/ziaur-rahman. Keep them in sync when a name changes.
 // Advisor profiles carry both short-form card data and rich detail-page data.
 
-/** Builds a gallery asset URL for a file in the R2 `ZiaurRahman/` folder. */
-const galleryImage = (file: string) =>
-  `https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/ZiaurRahman/${file}`;
+/** Gallery/media paths that point at a video file rather than an image. */
+export const VIDEO_PATTERN = /\.(mov|mp4|m4v|webm)$/i;
 
 export type CareerRole = {
   role: string;
@@ -19,8 +19,15 @@ export type PersonMedia = {
   url?: string;
   source?: string;
   year?: string;
-  /** Thumbnail shown on the media card — R2 URL or local `/images/...` path. */
-  image?: string;
+  /** Card images — R2 URL or local `/images/...` path. Two or more render as a carousel. */
+  images?: string[];
+};
+
+export type GalleryItem = {
+  /** R2 URLs or local `/images/...` paths. Two or more render as a carousel. */
+  images: string[];
+  /** Caption shown under the tile and used as the image's alt text. */
+  description?: string;
 };
 
 export type Person = {
@@ -51,14 +58,14 @@ export type Person = {
   /** Where the headshot lives — local path or remote URL. */
   imagePath: string;
   /** Photo gallery for the profile page. */
-  gallery: { imagePath: string; description?: string }[];
+  gallery: GalleryItem[];
   /** Social profile URLs. */
   socials: { linkedin?: string; email?: string };
 };
 
 export const people: Person[] = [
   {
-    slug: "advisor-1",
+    slug: "ziaur-rahman",
     name: "Ziaur Rahman",
     position: "Founder of Dialogue Partners",
     focus: "Sustainability, Trade Policy & Operational Excellence",
@@ -164,78 +171,104 @@ export const people: Person[] = [
     ],
     media: [
       {
+        title: "LDC graduation discussion with Think Tanks",
+        url: "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/LDC/LDC%20Graduation%20-%20Round%20table%20discussion%20report.pdf",
+        images: [
+          "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/LDC/ldc1.JPEG",
+          "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/LDC/ldc2.JPEG",
+          "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/LDC/ldc3.JPEG",
+        ],
+      },
+      {
         title: "Bangladesh needs to diversify products: H&M",
         source: "The Daily Star",
         url: "https://www.thedailystar.net/business/news/bangladesh-needs-diversify-products-hm-1828084",
-        image:
+        images: [
           "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/ZiaurRahman/006a379e-ee3c-4407-970b-72e485c44625.jpg",
+        ],
       },
       {
         title: "Bangladesh will continue to be an important production market for H&M",
         source: "Textile Today / Dhaka Tribune",
         url: "https://archive.dhakatribune.com/business/2020/07/25/bangladesh-will-continue-to-be-an-important-production-market-for-h-m",
-        image:
+        images: [
           "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/ZiaurRahman/03f5116c-5b83-4aa5-918b-343e27bb92ad.jpg",
+        ],
       },
       {
         title: "It's time for Bangladesh's apparel industry to go to the next level",
         source: "TBS News / Business Standard",
         url: "https://www.tbsnews.net/interviews/its-time-bangladesh-apparel-industry-go-next-level-45645",
-        image:
+        images: [
           "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/ZiaurRahman/065e1cc5-9572-4262-8477-21377b5bfc4b.jpg",
+        ],
       },
       {
         title: "H&M wins the trust of Bangladeshi apparel exporters",
         source: "TBS Business Standard",
         url: "https://www.tbsnews.net/economy/rmg/hm-wins-trust-bangladeshi-apparel-exporters-100303",
-        image:
+        images: [
           "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/ZiaurRahman/0aca343f-ecc3-427f-9c61-9f306a3b1cbb.jpg",
+        ],
       },
       {
         title: "Bangladesh is one of our biggest production markets — Ziaur Rahman, Regional Country Manager, H&M",
         source: "Denim Focus",
         url: "https://denimfocus.net/bangladesh-is-one-of-our-biggest-production-markets-and-will-continue-to-be-very-important-to-us-ziaur-rahman-regional-country-manager-hm/",
-        image:
+        images: [
           "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/ZiaurRahman/140327dd-9f77-4c8e-9e49-1ccacc45ede4.jpg",
+        ],
       },
       {
         title: "Ha-Meem Textile Recycling Plant launch",
         source: "Channel 24 (YouTube)",
         url: "https://www.youtube.com/watch?v=tbBBHAKM3eI&t=33s",
-        image:
+        images: [
           "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/ZiaurRahman/151A7580.jpeg",
+        ],
       },
       {
         title: "EuroCham Inauguration Ceremony",
         source: "YouTube",
         url: "https://www.youtube.com/watch?v=kiJEXZEseIY",
-        image:
+        images: [
           "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/ZiaurRahman/1815d8f1-e17c-4103-b5f6-e163c5294e1e.jpg",
+        ],
       },
     ],
     imagePath:
       "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/teamlead3.jpg",
     gallery: [
-      { imagePath: galleryImage("64528c15-6356-4052-8d15-373a1b2e9dd0.jpg") },
-      { imagePath: galleryImage("5a31f6a4-4247-4fff-963a-c185fb421e0a.jpg") },
-      { imagePath: galleryImage("5f5df8b4-4943-483e-90f7-ead6f4a0501c.jpg") },
-      { imagePath: galleryImage("69d7f36a-bdc8-4ac8-962d-24d8a30136c0.jpg") },
-      { imagePath: galleryImage("6a6f4e17-f83b-4589-addc-9771f5320be5.jpg") },
-      { imagePath: galleryImage("DSC00622.jpeg") },
-      { imagePath: galleryImage("DSC00679.jpeg") },
-      { imagePath: galleryImage("FullSizeRender.JPG") },
-      { imagePath: galleryImage("IMG_0029.JPEG") },
-      { imagePath: galleryImage("IMG_0079.JPG") },
-      { imagePath: galleryImage("IMG_0084.JPEG") },
-      { imagePath: galleryImage("IMG_0149.JPEG") },
-      { imagePath: galleryImage("IMG_0231.JPEG") },
-      { imagePath: galleryImage("IMG_0348.JPEG") },
-      { imagePath: galleryImage("IMG_0354.JPEG") },
-      { imagePath: galleryImage("IMG_0410.JPEG") },
-      { imagePath: galleryImage("IMG_0084.MOV") },
-      { imagePath: galleryImage("IMG_0189.MOV") },
-      { imagePath: galleryImage("IMG_0274.MOV") },
-      { imagePath: galleryImage("IMG_0283.MOV") },
+      {
+        images: [
+          "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/European%20office/Europeanoffice1.jpg",
+          "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/European%20office/Europeanoffice2.jpg",
+          "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/European%20office/Europeanoffice3.JPEG",
+        ],
+        description: "At European office – Ambassador Charles Whiteley",
+      },
+      {
+        images: [
+          "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/ncci/ncci.JPEG",
+        ],
+        description: "FDI discussion at NCCI",
+      },
+      {
+        images: [
+          "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/Future%20Proofing%20Business/Future%20Proofing%20Business1.JPEG",
+          "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/Future%20Proofing%20Business/Future%20Proofing%20Business2.JPEG",
+          "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/Future%20Proofing%20Business/Future%20Proofing%20Business3.JPEG",
+        ],
+        description:
+          "Future Proofing Business: A road map to Resilient Bangladesh\nEvent organized by HSBC & Nordic Chamber",
+      },
+      {
+        images: [
+          "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/EuroCham%20meeting/EuroCham%20meeting.JPEG",
+        ],
+        description:
+          "EuroCham meeting with European Investment Bank together with EU Delegation.",
+      },
     ],
     socials: {
       linkedin: "https://www.linkedin.com/in/ziaur-rahman-bangladesh/",
@@ -271,8 +304,8 @@ export const people: Person[] = [
     media: [],
     imagePath: "/images/people/placeholder-advisor.svg",
     gallery: [
-      { imagePath: "/images/people/advisor-2-01.jpg", description: "Portrait of Ziaur Rahman (advisor 2)" },
-      { imagePath: "/images/people/advisor-2-02.jpg", description: "Advisor 2 at a workshop" },
+      { images: ["/images/people/advisor-2-01.jpg"], description: "Portrait of Ziaur Rahman (advisor 2)" },
+      { images: ["/images/people/advisor-2-02.jpg"], description: "Advisor 2 at a workshop" },
     ],
     socials: { linkedin: "#", email: "info@dialoguepartners.com" },
   },
@@ -297,8 +330,8 @@ export const people: Person[] = [
     media: [],
     imagePath: "/images/people/placeholder-advisor.svg",
     gallery: [
-      { imagePath: "/images/people/advisor-3-01.jpg", description: "Portrait of Ziaur Rahman (advisor 3)" },
-      { imagePath: "/images/people/advisor-3-02.jpg", description: "Advisor 3 in a trade mission setting" },
+      { images: ["/images/people/advisor-3-01.jpg"], description: "Portrait of Ziaur Rahman (advisor 3)" },
+      { images: ["/images/people/advisor-3-02.jpg"], description: "Advisor 3 in a trade mission setting" },
     ],
     socials: { linkedin: "#", email: "info@dialoguepartners.com" },
   },
