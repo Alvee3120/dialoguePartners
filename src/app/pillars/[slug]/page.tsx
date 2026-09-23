@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   Leaf,
@@ -61,14 +62,28 @@ export default async function CorePillarPage({ params }: PageProps) {
             <p className="mt-5 text-2xl font-medium leading-snug tracking-tight text-accent-deep sm:text-3xl">
               {pillar.tagline}
             </p>
-            <div className="mt-5 space-y-4 text-lg leading-relaxed text-foreground">
-              {pillar.intro.split("\n\n").map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
+          </div>
+          <div className="mt-5 space-y-4 text-lg leading-relaxed text-foreground">
+            {pillar.intro.split("\n\n").map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
           </div>
         </Container>
       </section>
+
+      <div className="py-12 sm:py-16">
+        <Container>
+          <div className="relative aspect-[16/9] overflow-hidden rounded-3xl border border-line bg-card">
+            <Image
+              src={pillar.pageImage}
+              alt=""
+              fill
+              sizes="(min-width: 1280px) 1216px, (min-width: 1024px) calc(100vw - 64px), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)"
+              className="object-cover"
+            />
+          </div>
+        </Container>
+      </div>
 
       {pillar.groups.map((group) => (
         <section key={group.title} className="py-16 sm:py-20 [&:nth-of-type(even)]:bg-paper">

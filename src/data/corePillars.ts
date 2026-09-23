@@ -28,6 +28,8 @@ export type CorePillar = {
   icon: "Leaf" | "Circuitry" | "HandHeart" | "Gauge" | "Scales";
   /** Remote image URL used on the home pillar cards. */
   image: string;
+  /** Remote image URL used on the pillars page cards and detail pages. */
+  pageImage: string;
 };
 
 export const corePillars: CorePillar[] = [
@@ -43,8 +45,9 @@ export const corePillars: CorePillar[] = [
     intro:
       "Every sustainability journey needs a starting point grounded in reality, not only aspiration. We work with manufacturers to build the strategy where sustainability is embedded as a business offer. We help partners bridge the critical gap between ambitious sustainability commitments and execution on the factory floor. By aligning corporate vision with actionable science and human-centric operational strategies, we help businesses build credible, future-ready operations that satisfy evolving global standards while driving long-term efficiency.",
     icon: "Leaf",
-    image:
-      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/climet.jpg",
+    image: "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/climet.jpg",
+    pageImage:
+      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/pillar%201%20-%20Climate%20Resilience%20%26%20Decarbonization.png",
     groups: [
       {
         title: "Building Strategy",
@@ -150,6 +153,8 @@ export const corePillars: CorePillar[] = [
     icon: "Circuitry",
     image:
       "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/techandinnova.jpg",
+    pageImage:
+      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/Pillar%202-%20Technologu%20Solution%20and%20Innovation.png",
     groups: [
       {
         title: "Where We Deploy",
@@ -205,8 +210,9 @@ export const corePillars: CorePillar[] = [
     intro:
       "We help manufacturers turn responsible business conduct and due diligence into a credible, audit-ready practice — so regulation becomes proof of readiness, not a liability.",
     icon: "HandHeart",
-    image:
-      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/social.jpg",
+    image: "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/social.jpg",
+    pageImage:
+      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/pillar%203%20-%20social.png",
     groups: [
       {
         title: "Our Areas of Work",
@@ -250,6 +256,8 @@ export const corePillars: CorePillar[] = [
     icon: "Gauge",
     image:
       "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/operational.jpg",
+    pageImage:
+      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/pillar%204%20-%20Operational%20Excellence.png",
     groups: [
       {
         title: "Our Areas of Work",
@@ -299,6 +307,8 @@ export const corePillars: CorePillar[] = [
       "Navigating LDC graduation and a rapidly changing global market requires proactive policy alignment and resilient trade frameworks. Building a future-ready RMG ecosystem depends on bridging the gaps between national policy, global regulatory shifts, and ground-level manufacturing realities. We continuously connect regulatory bodies, international buyers, and strategic partners to shape forward-thinking policies that prepare the market for future trade dynamics.\n\nAt Dialogue Partners, we engage across the broader business ecosystem to drive strategic advocacy and policy formulation. We collaborate with international stakeholders, industry bodies, and financial partners to create sustainable trade pathways, secure competitive market access, and build financial structures that support long-term economic growth.",
     icon: "Scales",
     image: "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/trade.jpg",
+    pageImage:
+      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/Pillar%205%20(landscape).png",
     groups: [
       {
         title: "Our Areas of Work",

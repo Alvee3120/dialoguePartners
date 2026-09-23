@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Container from "@/components/site/Container";
 import ImageSlot from "@/components/site/ImageSlot";
 import SectionHeading from "@/components/site/SectionHeading";
-import ValuesGrid, { values } from "@/components/shared/ValuesGrid";
+import { values } from "@/components/shared/ValuesGrid";
 import AboutHero from "@/components/about/AboutHero";
 import OurRoleSection from "@/components/about/OurRoleSection";
 
@@ -42,9 +42,6 @@ export default function AboutPage() {
             lede="Four principles that define how we work, who we work with, and the outcomes we are accountable for."
             center
           />
-          <div className="mt-14">
-            <ValuesGrid />
-          </div>
           <div className="mt-12 grid gap-8 sm:grid-cols-2">
             {values.map((value) => (
               <div

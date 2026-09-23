@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { CaretDown } from "@phosphor-icons/react";
@@ -31,6 +31,8 @@ const navItems: NavItem[] = [
 export default function SiteHeader() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+  const mobileMenuRef = useRef<HTMLDetailsElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -38,6 +40,19 @@ export default function SiteHeader() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // The submenu opens on hover/focus, but a clicked link keeps focus across a
+  // client-side navigation, so it would stay open after picking a pillar.
+  // Blur the nav and collapse the mobile menu whenever the route changes.
+  useEffect(() => {
+    const active = document.activeElement;
+    if (active instanceof HTMLElement && navRef.current?.contains(active)) {
+      active.blur();
+    }
+    if (mobileMenuRef.current) {
+      mobileMenuRef.current.open = false;
+    }
+  }, [pathname]);
 
   // On the home page the hero sits under the header, so the nav has to render
   // light while it overlaps the dark video. Everywhere else it sits on light
@@ -56,7 +71,10 @@ export default function SiteHeader() {
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto grid h-20 w-full max-w-7xl grid-cols-[1fr_auto] items-center gap-6 px-4 sm:px-6 lg:grid-cols-[1fr_auto_1fr] lg:px-8">
+      <nav
+        ref={navRef}
+        className="mx-auto grid h-20 w-full max-w-7xl grid-cols-[1fr_auto] items-center gap-6 px-4 sm:px-6 lg:grid-cols-[1fr_auto_1fr] lg:px-8"
+      >
         {/* Logo */}
         <div className="flex items-center">
           <Logo inverted={overHero} />
@@ -134,7 +152,7 @@ export default function SiteHeader() {
         </div>
 
         {/* Mobile hamburger */}
-        <details className="group relative lg:hidden">
+        <details ref={mobileMenuRef} className="group relative lg:hidden">
           <summary
             className={`flex size-10 list-none items-center justify-center rounded-lg [&::-webkit-details-marker]:hidden ${
               overHero ? "text-white" : "text-ink"

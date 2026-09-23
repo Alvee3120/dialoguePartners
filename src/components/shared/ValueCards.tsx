@@ -7,7 +7,7 @@ function ValueCard({ value }: { value: (typeof values)[number] }) {
     <article className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_18px_40px_-26px_rgba(16,32,47,0.4)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_26px_50px_-26px_rgba(16,32,47,0.45)] motion-reduce:hover:translate-y-0">
       <div className="relative h-48 shrink-0 overflow-hidden">
         <Image
-          src={value.image}
+          src={value.homeImage}
           alt=""
           fill
           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"

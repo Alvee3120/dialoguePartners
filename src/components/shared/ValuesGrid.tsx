@@ -9,8 +9,10 @@ export type Value = {
   /** Longer description used on the About and Values pages. */
   expanded: string;
   icon: "eye" | "bulb" | "route" | "activity";
-  /** Remote image URL for the value card. */
+  /** Remote image URL used by the Values page grid. */
   image: string;
+  /** Remote image URL used by the home "Our Values" cards. */
+  homeImage: string;
 };
 
 const values: Value[] = [
@@ -22,6 +24,8 @@ const values: Value[] = [
     icon: "eye",
     image:
       "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/tran-values.png",
+    homeImage:
+      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/trans.png",
   },
   {
     name: "Innovation",
@@ -32,6 +36,8 @@ const values: Value[] = [
     icon: "bulb",
     image:
       "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/innovation-values%20(1).png",
+    homeImage:
+      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/innov.png",
   },
   {
     name: "Simplicity",
@@ -41,6 +47,8 @@ const values: Value[] = [
       "Regulatory frameworks, ESG reporting standards, and digital transformation roadmaps can be overwhelming. We specialize in cutting through that complexity and giving our partners a clear, sequenced path forward.",
     icon: "route",
     image:
+      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/simplicity-values.png",
+    homeImage:
       "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/simplicity.png",
   },
   {
@@ -51,10 +59,12 @@ const values: Value[] = [
       "Bangladesh's RMG sector employs millions and anchors the national economy. The pace of change happening around it — climate policy, trade shifts, automation — is not slowing down. We match that pace with energy, responsiveness, and a bias toward action.",
     icon: "activity",
     image:
+      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/vitality-new-values.png",
+    homeImage:
       "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/viltality.png",
   },
 ];
-
+  
 const iconMap: Record<Value["icon"], ReactNode> = {
   eye: (
     <>
