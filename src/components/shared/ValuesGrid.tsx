@@ -60,7 +60,7 @@ const values: Value[] = [
       "Bangladesh's RMG sector employs millions and anchors the national economy. The pace of change happening around it — climate policy, trade shifts, automation — is not slowing down. We match that pace with energy, responsiveness, and a bias toward action.",
     icon: "activity",
     image:
-      asset("vitality-new-values.png"),
+      asset("vitality-values.png"),
     homeImage:
       asset("viltality.png"),
   },
