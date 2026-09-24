@@ -1,22 +1,24 @@
+import { asset } from "@/lib/assets";
+
 // Central site information — edit values here and they update everywhere.
 export const site = {
   name: "Dialogue Partners",
   tagline: "Connecting Through Conversation",
   motto: "Transforming the RMG ecosystem through engagement.",
   // TODO: confirm real contact details before launch
-  email: "info@dialoguepartners.com",
-  phone: "+880 xxx xxx xxx",
+  email: "zia.bangladesh@outlook.com",
+  phone: "+880 1713-363494",
   city: "Dhaka, Bangladesh",
   address: "House 34, Road 115, Gulshan 2, Dhaka, Bangladesh",
   mottoKicker: "Stronger People. A More Sustainable Tomorrow.",
   heroVideo:
-    "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/Hero-DialoguePartners.mp4",
+    asset("Hero-DialoguePartners.mp4"),
   footerBackground:
-    "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/footerbg.png",
+    asset("footerbg.png"),
   roleBackground:
-    "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/ourrolebg.png",
+    asset("ourrolebg.png"),
   mottoBackground:
-    "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/motobg.png",
+    asset("motobg.png"),
 };
 
 // Top-level navigation — one entry per dedicated page.

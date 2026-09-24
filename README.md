@@ -51,6 +51,15 @@ public/
 - Contact details, tagline: `src/data/site.ts`
 - Five Insight pillars (titles, taglines, service breakdowns): `src/data/corePillars.ts`
 - Team / advisors (names, bios, experience, socials): `src/data/people.ts`
+- Job posts: managed in the admin panel at `/admin` (create the first admin with `npm run db:seed`)
+
+## Assets & environments
+
+Images, video and logos live on Cloudflare R2 and are referenced by **object key**
+through `asset()` (`src/lib/assets.ts`); the origin comes from
+`NEXT_PUBLIC_R2_BASE_URL`. The same data therefore works against the dev and
+production accounts with no link changes. Promoting content and assets between
+environments is covered in [docs/dev-to-prod.md](docs/dev-to-prod.md).
 
 ## Image placeholders
 

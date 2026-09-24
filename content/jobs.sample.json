@@ -1,0 +1,67 @@
+{
+  "jobs": [
+    {
+      "slug": "test-dummy-senior-merchandiser",
+      "title": "TEST — Senior Merchandiser (dummy posting, please do not apply)",
+      "department": "Sourcing",
+      "employmentType": "full_time",
+      "location": "Dhaka, Bangladesh",
+      "experienceLevel": "5+ years",
+      "salaryMin": 60000,
+      "salaryMax": 80000,
+      "salaryCurrency": "BDT",
+      "salaryPeriod": "monthly",
+      "salaryNegotiable": false,
+      "description": "This is a TEST posting used to check the careers page. It is not a real vacancy and no applications are reviewed. Please do not apply.",
+      "responsibilities": [
+        "Sample responsibility — placeholder text only",
+        "Sample responsibility — placeholder text only"
+      ],
+      "requirements": [
+        "Sample requirement — placeholder text only",
+        "Sample requirement — placeholder text only"
+      ],
+      "benefits": ["Sample benefit — placeholder text only"],
+      "applicationDeadline": "2026-12-31",
+      "status": "open"
+    },
+    {
+      "slug": "test-dummy-sustainability-analyst",
+      "title": "TEST — Sustainability Analyst (dummy posting, please do not apply)",
+      "department": "Sustainability & ESG",
+      "employmentType": "full_time",
+      "location": "Dhaka, Bangladesh",
+      "experienceLevel": "2–4 years",
+      "salaryMin": null,
+      "salaryMax": null,
+      "salaryCurrency": "BDT",
+      "salaryPeriod": "monthly",
+      "salaryNegotiable": true,
+      "description": "This is a TEST posting used to check the careers page (and the negotiable-salary display). It is not a real vacancy. Please do not apply.",
+      "responsibilities": ["Sample responsibility — placeholder text only"],
+      "requirements": ["Sample requirement — placeholder text only"],
+      "benefits": [],
+      "applicationDeadline": null,
+      "status": "open"
+    },
+    {
+      "slug": "test-dummy-trade-policy-researcher",
+      "title": "TEST — Trade Policy Researcher (dummy posting, please do not apply)",
+      "department": "Trade & Policy",
+      "employmentType": "contract",
+      "location": "Remote",
+      "experienceLevel": "3+ years",
+      "salaryMin": 45000,
+      "salaryMax": null,
+      "salaryCurrency": "BDT",
+      "salaryPeriod": "monthly",
+      "salaryNegotiable": false,
+      "description": "This is a TEST posting used to check the careers page (and the 'from' salary display). It is not a real vacancy. Please do not apply.",
+      "responsibilities": ["Sample responsibility — placeholder text only"],
+      "requirements": ["Sample requirement — placeholder text only"],
+      "benefits": ["Sample benefit — placeholder text only"],
+      "applicationDeadline": null,
+      "status": "open"
+    }
+  ]
+}

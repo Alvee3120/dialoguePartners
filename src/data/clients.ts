@@ -1,3 +1,5 @@
+import { asset } from "@/lib/assets";
+
 // Client / partner logos for the home "Trusted by" strip.
 //
 // Logos are hosted on R2. To add a client whose logo isn't ready yet, omit
@@ -13,6 +15,6 @@ export type Client = {
 export const clients: Client[] = [
   {
     name: "H&M",
-    logo: "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/H%26M-Logo.svg",
+    logo: asset("H%26M-Logo.svg"),
   },
 ];

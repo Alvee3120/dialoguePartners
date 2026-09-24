@@ -1,4 +1,5 @@
 import ImageSlot from "@/components/site/ImageSlot";
+import { asset } from "@/lib/assets";
 
 type Slide = {
   description: string;
@@ -10,27 +11,27 @@ const slides: Slide[] = [
   {
     description: "Consultants in discussion at a roundtable",
     path: "/images/home/who-we-are.jpg",
-    url: "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/solar.jpg",
+    url: asset("solar.jpg"),
   },
   {
     description: "A dialogue session between brands and manufacturers",
     path: "/images/about/dialogue-session.jpg",
-    url: "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/dialoguesession.png",
+    url: asset("dialoguesession.png"),
   },
   {
     description: "A modern RMG production floor in Bangladesh",
     path: "/images/about/factory-floor.jpg",
-    url: "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/workfloor.png",
+    url: asset("workfloor.png"),
   },
   {
     description: "Global trade networks connecting Bangladesh's RMG sector",
     path: "/images/about/trade.jpg",
-    url: "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/tradenew.jpg",
+    url: asset("tradenew.jpg"),
   },
   {
     description: "Technology and innovation transforming garment manufacturing",
     path: "/images/about/tech.jpg",
-    url: "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/tech.jpg",
+    url: asset("tech.jpg"),
   },
 ];
 

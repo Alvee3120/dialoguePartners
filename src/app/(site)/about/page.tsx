@@ -5,6 +5,7 @@ import SectionHeading from "@/components/site/SectionHeading";
 import { values } from "@/components/shared/ValuesGrid";
 import AboutHero from "@/components/about/AboutHero";
 import OurRoleSection from "@/components/about/OurRoleSection";
+import { asset } from "@/lib/assets";
 
 export const metadata: Metadata = {
   title: "Who We Are",
@@ -84,7 +85,7 @@ export default function AboutPage() {
             <ImageSlot
               description="Dialogue Partners convening global brands, local manufacturers, and technology partners around one table"
               suggestedPath="/images/about/what-we-do.jpg"
-              url="https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/151A7580.jpg"
+              url={asset("151A7580.jpg")}
             />
           </div>
         </Container>

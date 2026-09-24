@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
 import Reveal from "@/components/site/Reveal";
+import { asset } from "@/lib/assets";
 
 export type Value = {
   name: string;
@@ -23,9 +24,9 @@ const values: Value[] = [
       "We believe trust is built through openness, not polish. We share data honestly, communicate risk clearly, and hold ourselves to the same standards of accountability we ask of our clients.",
     icon: "eye",
     image:
-      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/tran-values.png",
+      asset("tran-values.png"),
     homeImage:
-      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/trans.png",
+      asset("trans.png"),
   },
   {
     name: "Innovation",
@@ -35,9 +36,9 @@ const values: Value[] = [
       "The RMG sector's next chapter will be won by those willing to rethink old models. We bring fresh, technology-enabled, forward-looking approaches to challenges the industry has historically treated as fixed costs of doing business.",
     icon: "bulb",
     image:
-      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/innovation-values%20(1).png",
+      asset("innovation-values%20(1).png"),
     homeImage:
-      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/innov.png",
+      asset("innov.png"),
   },
   {
     name: "Simplicity",
@@ -47,9 +48,9 @@ const values: Value[] = [
       "Regulatory frameworks, ESG reporting standards, and digital transformation roadmaps can be overwhelming. We specialize in cutting through that complexity and giving our partners a clear, sequenced path forward.",
     icon: "route",
     image:
-      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/simplicity-values.png",
+      asset("simplicity-values.png"),
     homeImage:
-      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/simplicity.png",
+      asset("simplicity.png"),
   },
   {
     name: "Vitality",
@@ -59,9 +60,9 @@ const values: Value[] = [
       "Bangladesh's RMG sector employs millions and anchors the national economy. The pace of change happening around it — climate policy, trade shifts, automation — is not slowing down. We match that pace with energy, responsiveness, and a bias toward action.",
     icon: "activity",
     image:
-      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/vitality-new-values.png",
+      asset("vitality-new-values.png"),
     homeImage:
-      "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/viltality.png",
+      asset("viltality.png"),
   },
 ];
   

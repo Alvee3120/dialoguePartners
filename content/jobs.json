@@ -1,0 +1,34 @@
+{
+  "jobs": [
+    {
+      "slug": "senior-merchandiser",
+      "title": "TEST — Senior Merchandiser (dummy posting, please do not apply)",
+      "department": "Sourcing",
+      "employmentType": "full_time",
+      "location": "Dhaka, Bangladesh",
+      "experienceLevel": "5+ years",
+      "salaryMin": 60000,
+      "salaryMax": 80000,
+      "salaryCurrency": "BDT",
+      "salaryPeriod": "monthly",
+      "salaryNegotiable": false,
+      "description": "This is a TEST posting used to check the careers page. It is not a real vacancy and no applications are reviewed. Please do not apply.",
+      "responsibilities": [
+        "Own sampling",
+        "Manage vendor relationships",
+        "Negotiate lead times"
+      ],
+      "requirements": [
+        "5+ years in RMG merchandising",
+        "Strong Excel skills"
+      ],
+      "benefits": [
+        "Health cover",
+        "Annual bonus"
+      ],
+      "applicationDeadline": "2026-12-31",
+      "status": "open",
+      "postedAt": "2026-09-24T06:35:33.333Z"
+    }
+  ]
+}

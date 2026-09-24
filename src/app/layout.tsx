@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Urbanist } from "next/font/google";
 import "./globals.css";
-import SiteHeader from "@/components/site/SiteHeader";
-import SiteFooter from "@/components/site/SiteFooter";
-import TopBar from "@/components/site/TopBar";
 
 const bodyFont = Urbanist({
   variable: "--font-body",
@@ -26,10 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${bodyFont.variable} antialiased`}>
       <body className="flex min-h-svh flex-col bg-background text-foreground">
-        <TopBar />
-        <SiteHeader />
-        <main className="flex-1">{children}</main>
-        <SiteFooter />
+        {children}
       </body>
     </html>
   );

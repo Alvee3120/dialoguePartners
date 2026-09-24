@@ -2,9 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import Container from "@/components/site/Container";
 import Reveal from "@/components/site/Reveal";
+import { asset } from "@/lib/assets";
 
 const IMAGE_URL =
-  "https://pub-c08eb6417f1b48ec8b568ba26a747fbb.r2.dev/whoWeare.png";
+  asset("whoWeare.png");
 
 export default function WhoWeAre() {
   return (
