@@ -24,18 +24,22 @@ export default function Logo({ inverted = false }: LogoProps) {
       />
       <span className="flex flex-col leading-none">
         <span
-          className={`text-[15px] font-bold uppercase tracking-[0.12em] ${
+          className={`text-[15px] font-bold uppercase leading-[1.15] tracking-[0.12em] ${
             inverted ? "text-white" : "text-navy"
           }`}
         >
-          {site.name}
+          {site.name.split(" ").map((word) => (
+            <span key={word} className="block">
+              {word}
+            </span>
+          ))}
         </span>
         <span
-          className={`mt-1 text-[9px] font-semibold uppercase tracking-[0.2em] ${
+          className={`mt-1 text-[4.5px] font-semibold uppercase tracking-normal ${
             inverted ? "text-white" : "text-accent-deep"
           }`}
         >
-          People | Insight | Impact
+          {site.tagline}
         </span>
       </span>
     </Link>

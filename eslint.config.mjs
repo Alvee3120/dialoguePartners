@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Vendored AI skill bundles and tool worktrees are not app code.
+    ".claude/**",
+    ".kilo/**",
   ]),
 ]);
 
