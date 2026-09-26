@@ -118,9 +118,18 @@ export default async function PersonPage({ params }: PageProps) {
       {/* Leadership highlights */}
       <section className="border-b border-line bg-paper py-10">
         <Container>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
             {person.highlights.map((h) => (
-              <div key={h.value} className="rounded-2xl border border-line bg-white p-5">
+              <div key={h.value} className="flex flex-col rounded-2xl border border-line bg-white p-5">
+                {h.logo ? (
+                  <Image
+                    src={h.logo}
+                    alt=""
+                    width={160}
+                    height={48}
+                    className="mb-4 h-12 w-auto max-w-full self-start object-contain"
+                  />
+                ) : null}
                 <p className="text-xs font-semibold uppercase tracking-[0.15em] text-accent-deep">{h.label}</p>
                 <p className="mt-2 text-sm font-medium leading-snug text-ink">{h.value}</p>
               </div>

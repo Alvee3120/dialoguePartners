@@ -50,7 +50,7 @@ export type Person = {
   /** Career timeline (detail page). */
   experience: CareerRole[];
   /** Details that don't fit the timeline (detail page). */
-  highlights: { label: string; value: string }[];
+  highlights: { label: string; value: string; logo?: string }[];
   /** Academic credentials. */
   education: string[];
   /** Press / media interviews. */
@@ -159,10 +159,31 @@ export const people: Person[] = [
       },
     ],
     highlights: [
-      { label: "Vice Chairperson", value: "European Chamber of Commerce (EuroCham) Bangladesh" },
-      { label: "Board of Directors", value: "RMG Sustainability Council (RSC)" },
-      { label: "Board of Directors", value: "Nordic Chamber of Commerce & Industry in Bangladesh" },
-      { label: "Brands Representative", value: "Employment Injury Scheme (EIS) Pilot" },
+      {
+        label: "Vice Chairperson",
+        value: "European Chamber of Commerce (EuroCham) Bangladesh",
+        logo: asset("logos/Eurocham-Bangladesh-logo.jpg"),
+      },
+      {
+        label: "Board of Directors",
+        value: "RMG Sustainability Council (RSC)",
+        logo: asset("logos/rsclogo.webp"),
+      },
+      {
+        label: "Board of Directors",
+        value: "Nordic Chamber of Commerce & Industry in Bangladesh",
+        logo: asset("logos/NCCI_logo.svg"),
+      },
+      {
+        label: "Brands Representative",
+        value: "Employment Injury Scheme (EIS) Pilot",
+        logo: asset("logos/eis_logo_new.png"),
+      },
+      {
+        label: "Regional Country Manager",
+        value: "H&M",
+        logo: asset("H%26M-Logo.svg"),
+      },
     ],
     education: [
       "Executive MBA — American International University Bangladesh",
