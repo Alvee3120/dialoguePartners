@@ -41,8 +41,6 @@ export type Person = {
   comingSoon?: boolean;
   /** Short intro shown on the profile page. */
   bio: string[];
-  /** Focus area shown on cards and profile page. */
-  focus: string;
   /** Longer focus/tagline for the detail page sub-line. */
   tagline?: string;
   /** Core competencies (icon cards on detail page). */
@@ -70,11 +68,10 @@ export const people: Person[] = [
     slug: "ziaur-rahman",
     name: "Ziaur Rahman",
     position: "Founder of Dialogue Partners",
-    focus: "Sustainability, Trade Policy & Operational Excellence",
-    tagline: "Supply-chain efficiency, sustainability advocacy, trade policy, and industry transformation",
     bio: [
-      "Ziaur Rahman is a senior apparel and textile supply-chain leader with more than 25 years of experience across global sourcing, sustainability, stakeholder management, and organizational transformation. He currently serves as Regional Country Head for H&M Group's Bangladesh, Pakistan, and Africa production regions.",
-      "A sought-after policy voice, Ziaur sits on the boards of the European Chamber of Commerce, the RMG Sustainability Council (RSC), and the Nordic Chamber of Commerce, and represents brands under the Employment Injury Scheme (EIS) pilot. He is passionate about shaping a high-value, sustainable, and digitally connected future for Bangladesh's RMG sector.",
+      "Ziaur Rahman (in short Zia) is a textile and apparel industry leader with 28 years of experience spanning garment manufacturing, global supply chain management, and sustainability leadership in Bangladesh. He holds an Executive MBA and is fluent in Bangla and English.",
+      "Zia began his career in garment manufacturing/Factory before joining H&M in 2002, where he spent 22 years in progressively senior roles across merchandising, product management, supply chain — including an international assignment as Supply Chain Manager in Indonesia — and country leadership. From 2019 until October 2026, he served as Regional Country Head for H&M's production operations in Bangladesh, Pakistan and Africa, leading a large cross-functional team and engaging at the highest levels of industry, government, and multi-stakeholder platforms. He served on the Board of the RMG Sustainability Council (RSC) and the Employment Injury Scheme (EIS), as Vice Chairman of EuroCham Bangladesh, and as Executive Committee Member of the Nordic Chamber of Commerce and Industry (NCCI) in Bangladesh.",
+      "From November 2026, Zia operates as an independent consultant, focusing on Climate, Decarbonization, Circular Economy & Trade Facilitation in the textile sector. His combination of factory-floor grounding, brand-level strategic experience, deep industry networks, and hands-on circularity work makes him uniquely placed to support reverse textile value chain assessments and circular economy program design in Bangladesh.",
     ],
     competencies: [
       "Transforming organizations for a future-fit business",
@@ -268,7 +265,6 @@ export const people: Person[] = [
     name: "Advisor Name",
     position: "Visiting Advisor",
     comingSoon: true,
-    focus: "Sustainability & ESG Reporting",
     bio: [
       "Ziaur Rahman has spent his career at the intersection of sustainability compliance and factory practice, supporting manufacturers across ESG reporting, climate resilience, and social responsibility. He has guided factories toward SBTi-aligned targets and verified, buyer-ready disclosures.",
       "His expertise turns regulatory expectation into practical, multi-year programs that embed sustainability into daily operations rather than treating it as a separate initiative.",
@@ -302,7 +298,6 @@ export const people: Person[] = [
     name: "Advisor Name",
     position: "Visiting Advisor",
     comingSoon: true,
-    focus: "Investment & Trade Facilitation",
     bio: [
       "Ziaur Rahman brings deep experience on both sides of the table — inside global brands and within Bangladesh's suppliers and industrial zones. He has supported investors and manufacturers through regulatory navigation, market entry, and cross-border trade strategy.",
       "His strength is translating policy shifts and market signals into clear, sequenced plans that give partners confidence to act in a fast-moving sourcing environment.",

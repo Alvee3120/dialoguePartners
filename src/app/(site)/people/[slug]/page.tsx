@@ -94,9 +94,7 @@ export default async function PersonPage({ params }: PageProps) {
               <p className="mt-3 text-lg font-medium text-accent-soft">{person.position}</p>
               {person.tagline ? (
                 <p className="mt-1 text-sm text-white/70">{person.tagline}</p>
-              ) : (
-                <p className="mt-1 text-sm text-white/70">Focus: {person.focus}</p>
-              )}
+              ) : null}
 
               <div className="mt-8 space-y-4 leading-relaxed text-white/80">
                 {person.bio.map((paragraph) => (
