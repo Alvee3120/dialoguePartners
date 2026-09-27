@@ -4,6 +4,7 @@ import {
   ChartLineUp,
   Factory,
   Leaf,
+  Target,
   UsersThree,
 } from "@phosphor-icons/react/dist/ssr";
 import Container from "@/components/site/Container";
@@ -11,7 +12,8 @@ import { buttonAccent, buttonGhostLight } from "@/components/site/button";
 import { site } from "@/data/site";
 
 const stats = [
-  { icon: UsersThree, value: "100+", label: "Industry Stakeholders" },
+  { icon: Target, value: "Measurable", label: "Impact" },
+  { icon: UsersThree, value: "Empowering", label: "People" },
   { icon: ChartLineUp, value: "Strategic", label: "Insights" },
   { icon: Leaf, value: "Sustainable", label: "Growth" },
 ];
@@ -71,7 +73,7 @@ export default function Hero() {
 
       {/* Stat strip */}
       <div className="relative z-10 border-t border-white/10 bg-navy-deep/40 backdrop-blur-sm">
-        <Container className="flex flex-nowrap items-center justify-between gap-x-4 py-6 sm:justify-start sm:gap-x-14">
+        <Container className="grid grid-cols-2 gap-x-4 gap-y-6 py-6 sm:flex sm:flex-nowrap sm:items-center sm:justify-start sm:gap-x-14 sm:gap-y-0">
           {stats.map((stat) => {
             const Icon = stat.icon;
             return (
