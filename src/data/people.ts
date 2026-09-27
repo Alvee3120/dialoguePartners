@@ -312,7 +312,7 @@ export const people: Person[] = [
       { images: ["/images/people/advisor-2-01.jpg"], description: "Portrait of Ziaur Rahman (advisor 2)" },
       { images: ["/images/people/advisor-2-02.jpg"], description: "Advisor 2 at a workshop" },
     ],
-    socials: { linkedin: "#", email: "zia.bangladesh@outlook.com" },
+    socials: { linkedin: "#", email: "info@dialoguepartners.com.bd" },
   },
   {
     slug: "advisor-3",
@@ -337,7 +337,7 @@ export const people: Person[] = [
       { images: ["/images/people/advisor-3-01.jpg"], description: "Portrait of Ziaur Rahman (advisor 3)" },
       { images: ["/images/people/advisor-3-02.jpg"], description: "Advisor 3 in a trade mission setting" },
     ],
-    socials: { linkedin: "#", email: "zia.bangladesh@outlook.com" },
+    socials: { linkedin: "#", email: "info@dialoguepartners.com.bd" },
   },
 ];
 

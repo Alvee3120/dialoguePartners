@@ -6,7 +6,7 @@ export const site = {
   tagline: "Connecting Through Conversation",
   motto: "Transforming the RMG ecosystem through engagement.",
   // TODO: confirm real contact details before launch
-  email: "zia.bangladesh@outlook.com",
+  email: "info@dialoguepartners.com.bd",
   phone: "+880 1713-363494",
   city: "Dhaka, Bangladesh",
   address: "House 34, Road 115, Gulshan 2, Dhaka, Bangladesh",
