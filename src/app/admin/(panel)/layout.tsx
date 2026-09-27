@@ -13,7 +13,7 @@ export default async function AdminPanelLayout({
 
   return (
     <div className="flex flex-1 flex-col lg:flex-row">
-      <AdminNav name={session.name} email={session.email} />
+      <AdminNav name={session.name} email={session.email} role={session.role} />
       <main className="min-w-0 flex-1 px-4 py-8 sm:px-6 lg:px-10">
         {children}
       </main>

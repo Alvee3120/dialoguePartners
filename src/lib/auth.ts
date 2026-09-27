@@ -110,3 +110,10 @@ export async function requireAdmin(): Promise<AdminSession> {
   if (!session) redirect("/admin/login");
   return session;
 }
+
+/** Like `requireAdmin`, but only owners may pass — gates admin-user management. */
+export async function requireOwner(): Promise<AdminSession> {
+  const session = await requireAdmin();
+  if (session.role !== "owner") redirect("/admin");
+  return session;
+}

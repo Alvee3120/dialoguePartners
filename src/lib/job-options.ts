@@ -18,6 +18,8 @@ export const APPLICATION_STATUSES = [
   "rejected",
 ] as const;
 
+export const ADMIN_ROLES = ["admin", "owner"] as const;
+
 export const EMPLOYMENT_TYPE_LABELS: Record<string, string> = {
   full_time: "Full-time",
   part_time: "Part-time",
@@ -41,4 +43,9 @@ export const APPLICATION_STATUS_LABELS: Record<string, string> = {
   reviewed: "Reviewed",
   shortlisted: "Shortlisted",
   rejected: "Rejected",
+};
+
+export const ADMIN_ROLE_LABELS: Record<string, string> = {
+  admin: "Admin",
+  owner: "Owner",
 };

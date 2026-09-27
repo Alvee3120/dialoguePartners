@@ -8,16 +8,22 @@ const links = [
   { href: "/admin", label: "Dashboard" },
   { href: "/admin/jobs", label: "Job posts" },
   { href: "/admin/applications", label: "Applications" },
+  { href: "/admin/profile", label: "Profile" },
 ];
+
+const ownerLinks = [{ href: "/admin/admins", label: "Admins" }];
 
 export default function AdminNav({
   name,
   email,
+  role,
 }: {
   name: string;
   email: string;
+  role: "admin" | "owner";
 }) {
   const pathname = usePathname();
+  const navLinks = role === "owner" ? [...links, ...ownerLinks] : links;
 
   return (
     <aside className="flex flex-col gap-4 border-b border-line bg-navy px-4 py-4 text-white lg:w-64 lg:shrink-0 lg:border-b-0 lg:border-r lg:px-5 lg:py-6">
@@ -32,7 +38,7 @@ export default function AdminNav({
       </div>
 
       <nav className="-mx-1 flex flex-row gap-1 overflow-x-auto lg:mx-0 lg:flex-col">
-        {links.map((link) => {
+        {navLinks.map((link) => {
           const active =
             link.href === "/admin"
               ? pathname === "/admin"

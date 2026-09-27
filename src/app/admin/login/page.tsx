@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { redirect } from "next/navigation";
+import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
 import LoginForm from "@/components/admin/LoginForm";
 import { getSession } from "@/lib/auth";
 
@@ -21,7 +23,14 @@ export default async function AdminLoginPage({ searchParams }: PageProps) {
   const target = next && next.startsWith("/admin") ? next : "/admin";
 
   return (
-    <main className="flex flex-1 items-center justify-center px-4 py-16">
+    <main className="relative flex flex-1 items-center justify-center px-4 py-16">
+      <Link
+        href="/"
+        className="absolute left-6 top-6 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-accent-deep"
+      >
+        <ArrowLeft className="size-4" aria-hidden="true" />
+        Back to homepage
+      </Link>
       <div className="w-full max-w-md rounded-2xl border border-line bg-white p-8 shadow-sm">
         <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent-deep">
           Dialogue Partners
