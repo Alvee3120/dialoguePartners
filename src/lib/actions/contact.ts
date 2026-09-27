@@ -1,5 +1,10 @@
 "use server";
 
+import { createHash } from "node:crypto";
+import { headers } from "next/headers";
+import { eq } from "drizzle-orm";
+import { getDb } from "@/lib/db";
+import { contactMessages } from "@/lib/db/schema";
 import { isMailConfigured, sendContactMessage } from "@/lib/mail";
 import {
   contactFormToInput,
@@ -28,15 +33,38 @@ export async function submitContactAction(
     };
   }
 
-  if (!isMailConfigured()) {
-    return { error: "Messages can't be sent right now. Please email us directly." };
+  const forwardedFor = (await headers()).get("x-forwarded-for");
+  const ip = forwardedFor?.split(",")[0]?.trim();
+  const ipHash = ip
+    ? createHash("sha256").update(ip).digest("hex").slice(0, 32)
+    : null;
+
+  const db = getDb();
+  let messageId: string;
+  try {
+    const [row] = await db
+      .insert(contactMessages)
+      .values({ ...parsed.data, ipHash })
+      .returning({ id: contactMessages.id });
+    messageId = row.id;
+  } catch (error) {
+    console.error("Saving contact message failed", error);
+    return { error: "We couldn't send your message. Please try again." };
   }
 
-  try {
-    await sendContactMessage(parsed.data);
-  } catch (error) {
-    console.error("Contact email failed", error);
-    return { error: "We couldn't send your message. Please try again." };
+  if (isMailConfigured()) {
+    // Fire-and-forget: the message is already saved above, so the visitor
+    // doesn't need to wait on the SMTP round-trip to see success.
+    sendContactMessage(parsed.data)
+      .then(() =>
+        db
+          .update(contactMessages)
+          .set({ emailSentAt: new Date() })
+          .where(eq(contactMessages.id, messageId)),
+      )
+      .catch((error) => {
+        console.error("Contact email failed", error);
+      });
   }
 
   return { ok: true };

@@ -112,15 +112,15 @@ export async function submitApplicationAction(
   });
 
   if (isMailConfigured()) {
-    try {
-      await sendApplicationNotification({
-        ...parsed.data,
-        jobTitle: job.title,
-        cv: { filename: cv.name.slice(0, 200), buffer: cvBuffer, contentType: cv.type },
-      });
-    } catch (error) {
+    // Fire-and-forget: the application is already saved above, so the
+    // applicant doesn't need to wait on the SMTP round-trip to see success.
+    sendApplicationNotification({
+      ...parsed.data,
+      jobTitle: job.title,
+      cv: { filename: cv.name.slice(0, 200), buffer: cvBuffer, contentType: cv.type },
+    }).catch((error) => {
       console.error("Application notification email failed", error);
-    }
+    });
   }
 
   revalidatePath("/admin/applications");

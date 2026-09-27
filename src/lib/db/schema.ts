@@ -137,6 +137,26 @@ export const applications = pgTable(
   ],
 );
 
+export const contactMessages = pgTable(
+  "contact_messages",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    name: text("name").notNull(),
+    company: text("company"),
+    email: text("email").notNull(),
+    phone: text("phone"),
+    role: text("role"),
+    interest: text("interest"),
+    message: text("message").notNull(),
+    ipHash: text("ip_hash"),
+    emailSentAt: timestamp("email_sent_at", { withTimezone: true }),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (table) => [index("contact_messages_created_idx").on(table.createdAt)],
+);
+
 export type AdminUser = typeof adminUsers.$inferSelect;
 export type Session = typeof sessions.$inferSelect;
 export type Job = typeof jobs.$inferSelect;
@@ -144,3 +164,4 @@ export type NewJob = typeof jobs.$inferInsert;
 export type JobStatus = Job["status"];
 export type Application = typeof applications.$inferSelect;
 export type ApplicationStatus = Application["status"];
+export type ContactMessage = typeof contactMessages.$inferSelect;
