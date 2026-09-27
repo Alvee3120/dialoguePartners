@@ -6,6 +6,7 @@ import { revalidatePath } from "next/cache";
 import { getDb } from "@/lib/db";
 import { applications } from "@/lib/db/schema";
 import { getOpenJobBySlug } from "@/lib/jobs";
+import { isMailConfigured, sendApplicationNotification } from "@/lib/mail";
 import { isR2Configured, uploadObject } from "@/lib/r2";
 import {
   applicationFormToInput,
@@ -76,11 +77,12 @@ export async function submitApplicationAction(
   }
 
   const key = `cv/${job.id}/${randomUUID()}${extension}`;
+  const cvBuffer = Buffer.from(await cv.arrayBuffer());
 
   try {
     await uploadObject({
       key,
-      body: Buffer.from(await cv.arrayBuffer()),
+      body: cvBuffer,
       contentType: cv.type,
     });
   } catch (error) {
@@ -108,6 +110,18 @@ export async function submitApplicationAction(
     cvSize: cv.size,
     ipHash,
   });
+
+  if (isMailConfigured()) {
+    try {
+      await sendApplicationNotification({
+        ...parsed.data,
+        jobTitle: job.title,
+        cv: { filename: cv.name.slice(0, 200), buffer: cvBuffer, contentType: cv.type },
+      });
+    } catch (error) {
+      console.error("Application notification email failed", error);
+    }
+  }
 
   revalidatePath("/admin/applications");
   return { ok: true };

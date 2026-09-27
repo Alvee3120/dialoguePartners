@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Container from "@/components/site/Container";
 import PageHeader from "@/components/shared/PageHeader";
+import ContactForm from "@/components/site/ContactForm";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -13,9 +14,6 @@ const contactRows = [
   { label: "Phone", value: site.phone, href: `tel:${site.phone.replace(/\s/g, "")}` },
   { label: "Office", value: site.address },
 ];
-
-const fieldClass =
-  "w-full rounded-xl border border-line bg-white px-4 py-3 text-sm text-ink outline-none transition-colors placeholder:text-foreground/50 focus:border-accent-deep focus:ring-2 focus:ring-accent-soft";
 
 export default function ContactPage() {
   return (
@@ -34,78 +32,7 @@ export default function ContactPage() {
         <Container>
           <div className="grid gap-10 lg:grid-cols-[3fr_2fr] lg:gap-16">
             {/* Contact form */}
-            <form className="rounded-3xl border border-line bg-paper p-7 sm:p-10">
-              <p className="text-sm leading-relaxed">
-                Complete the form and one of our advisors will be in touch to
-                arrange a conversation.
-              </p>
-              <div className="mt-8 grid gap-6 sm:grid-cols-2">
-                <label className="block">
-                  <span className="text-xs font-semibold uppercase tracking-[0.15em] text-foreground/60">
-                    Full Name
-                  </span>
-                  <input type="text" name="name" required placeholder="Jane Doe" className={`mt-2 ${fieldClass}`} />
-                </label>
-                <label className="block">
-                  <span className="text-xs font-semibold uppercase tracking-[0.15em] text-foreground/60">
-                    Company / Organization
-                  </span>
-                  <input type="text" name="company" placeholder="Acme Ltd." className={`mt-2 ${fieldClass}`} />
-                </label>
-                <label className="block">
-                  <span className="text-xs font-semibold uppercase tracking-[0.15em] text-foreground/60">
-                    Email Address
-                  </span>
-                  <input type="email" name="email" required placeholder="you@company.com" className={`mt-2 ${fieldClass}`} />
-                </label>
-                <label className="block">
-                  <span className="text-xs font-semibold uppercase tracking-[0.15em] text-foreground/60">
-                    Phone Number
-                  </span>
-                  <input type="tel" name="phone" placeholder="+880 ..." className={`mt-2 ${fieldClass}`} />
-                </label>
-                <label className="block">
-                  <span className="text-xs font-semibold uppercase tracking-[0.15em] text-foreground/60">
-                    I am a
-                  </span>
-                  <select name="role" className={`mt-2 ${fieldClass}`} defaultValue="">
-                    <option value="" disabled>Select one</option>
-                    <option value="global-brand">Global Brand</option>
-                    <option value="manufacturer">Manufacturer</option>
-                    <option value="investor">Investor</option>
-                    <option value="policymaker">Policymaker</option>
-                    <option value="technology">Technology Partner</option>
-                    <option value="other">Other</option>
-                  </select>
-                </label>
-                <label className="block">
-                  <span className="text-xs font-semibold uppercase tracking-[0.15em] text-foreground/60">
-                    Area of Interest
-                  </span>
-                  <select name="interest" className={`mt-2 ${fieldClass}`} defaultValue="">
-                    <option value="" disabled>Select one</option>
-                    <option value="sustainability">Sustainability</option>
-                    <option value="investment-trade">Investment &amp; Trade</option>
-                    <option value="supply-chain">Supply Chain</option>
-                    <option value="operational-excellence">Operational Excellence</option>
-                    <option value="general">General Inquiry</option>
-                  </select>
-                </label>
-                <label className="block sm:col-span-2">
-                  <span className="text-xs font-semibold uppercase tracking-[0.15em] text-foreground/60">
-                    Message
-                  </span>
-                  <textarea name="message" rows={5} placeholder="Tell us a little about your goals..." className={`mt-2 ${fieldClass} resize-y`} />
-                </label>
-              </div>
-              <button
-                type="submit"
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-navy px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-navy-soft"
-              >
-                Send Message
-                <span aria-hidden="true">→</span>
-              </button>
-            </form>
+            <ContactForm />
 
             {/* Contact details + map placeholder */}
             <div className="flex flex-col gap-8">

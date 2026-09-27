@@ -19,6 +19,8 @@ if (configuredBase) {
 }
 
 const nextConfig: NextConfig = {
+  // nodemailer uses Node.js internals — keep it out of the bundler.
+  serverExternalPackages: ["nodemailer"],
   experimental: {
     // CV uploads go through a Server Action; the default limit is 1MB.
     serverActions: {

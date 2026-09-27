@@ -1,12 +1,19 @@
 import { z } from "zod";
 import {
+  ADMIN_ROLES,
   APPLICATION_STATUSES,
   EMPLOYMENT_TYPES,
   JOB_STATUSES,
   SALARY_PERIODS,
 } from "@/lib/job-options";
 
-export { APPLICATION_STATUSES, EMPLOYMENT_TYPES, JOB_STATUSES, SALARY_PERIODS };
+export {
+  ADMIN_ROLES,
+  APPLICATION_STATUSES,
+  EMPLOYMENT_TYPES,
+  JOB_STATUSES,
+  SALARY_PERIODS,
+};
 
 const emptyToUndefined = (value: unknown) =>
   typeof value === "string" && value.trim() === "" ? undefined : value;
@@ -129,6 +136,104 @@ export const applicationInputSchema = z.object({
 
 export type ApplicationInput = z.infer<typeof applicationInputSchema>;
 
+export const adminInputSchema = z.object({
+  name: z
+    .string()
+    .trim()
+    .min(2, { error: "Enter a name." })
+    .max(120),
+  email: z.email({ error: "Enter a valid email address." }),
+  password: z
+    .string()
+    .min(8, { error: "Password must be at least 8 characters." })
+    .max(200),
+  role: z.enum(ADMIN_ROLES),
+});
+
+export type AdminInput = z.infer<typeof adminInputSchema>;
+
+export const profileInputSchema = z.object({
+  name: z
+    .string()
+    .trim()
+    .min(2, { error: "Enter a name." })
+    .max(120),
+});
+
+export type ProfileInput = z.infer<typeof profileInputSchema>;
+
+export const passwordChangeSchema = z
+  .object({
+    currentPassword: z
+      .string()
+      .min(1, { error: "Enter your current password." }),
+    newPassword: z
+      .string()
+      .min(8, { error: "Password must be at least 8 characters." })
+      .max(200),
+    confirmPassword: z.string().min(1, { error: "Confirm your new password." }),
+  })
+  .superRefine((value, ctx) => {
+    if (value.newPassword !== value.confirmPassword) {
+      ctx.addIssue({
+        code: "custom",
+        path: ["confirmPassword"],
+        message: "Passwords don't match.",
+      });
+    }
+  });
+
+export type PasswordChangeInput = z.infer<typeof passwordChangeSchema>;
+
+export const CONTACT_ROLES = [
+  "global-brand",
+  "manufacturer",
+  "investor",
+  "policymaker",
+  "technology",
+  "other",
+] as const;
+
+export const CONTACT_INTERESTS = [
+  "sustainability",
+  "investment-trade",
+  "supply-chain",
+  "operational-excellence",
+  "general",
+] as const;
+
+const optionalEnum = <T extends readonly [string, ...string[]]>(values: T) =>
+  z.preprocess(emptyToUndefined, z.enum(values).optional());
+
+export const contactInputSchema = z.object({
+  name: z
+    .string()
+    .trim()
+    .min(2, { error: "Enter your full name." })
+    .max(120),
+  company: optionalText(160),
+  email: z.email({ error: "Enter a valid email address." }),
+  phone: z.preprocess(
+    emptyToUndefined,
+    z
+      .string()
+      .trim()
+      .min(6, { error: "Enter a valid phone number." })
+      .max(24, { error: "Enter a valid phone number." })
+      .regex(/^[0-9+()\-.\s]+$/, { error: "Enter a valid phone number." })
+      .optional(),
+  ),
+  role: optionalEnum(CONTACT_ROLES),
+  interest: optionalEnum(CONTACT_INTERESTS),
+  message: z
+    .string()
+    .trim()
+    .min(10, { error: "Tell us a little about your goals." })
+    .max(5000),
+});
+
+export type ContactInput = z.infer<typeof contactInputSchema>;
+
 /** Flatten zod issues into `{ field: firstMessage }` for form rendering. */
 export function fieldErrors(error: z.ZodError): Record<string, string> {
   const out: Record<string, string> = {};
@@ -176,5 +281,28 @@ export function applicationFormToInput(formData: FormData, jobId: string) {
     phone: getString(formData, "phone"),
     coverLetter: getString(formData, "coverLetter"),
     linkedinUrl: getString(formData, "linkedinUrl"),
+  };
+}
+
+/** Read the public contact form into the shape `contactInputSchema` expects. */
+export function contactFormToInput(formData: FormData) {
+  return {
+    name: getString(formData, "name"),
+    company: getString(formData, "company"),
+    email: getString(formData, "email"),
+    phone: getString(formData, "phone"),
+    role: getString(formData, "role"),
+    interest: getString(formData, "interest"),
+    message: getString(formData, "message"),
+  };
+}
+
+/** Read the new-admin form into the shape `adminInputSchema` expects. */
+export function adminFormToInput(formData: FormData) {
+  return {
+    name: getString(formData, "name"),
+    email: getString(formData, "email").trim().toLowerCase(),
+    password: getString(formData, "password"),
+    role: getString(formData, "role") || "admin",
   };
 }

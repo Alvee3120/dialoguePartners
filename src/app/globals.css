@@ -68,6 +68,16 @@ h3 {
   animation: fade-in-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* Contact form confirmation toast — see ContactForm.tsx */
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(-16px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+.animate-toast-in {
+  animation: toast-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 @keyframes float-slow {
   0%, 100% { transform: translate3d(0, 0, 0); }
   50% { transform: translate3d(0, -18px, 0); }
