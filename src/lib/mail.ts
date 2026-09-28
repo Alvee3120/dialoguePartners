@@ -1,5 +1,9 @@
 import nodemailer from "nodemailer";
 import type { Transporter } from "nodemailer";
+import {
+  CONTACT_INTEREST_LABELS as INTEREST_LABELS,
+  CONTACT_ROLE_LABELS as ROLE_LABELS,
+} from "@/lib/job-options";
 import type { ApplicationInput, ContactInput } from "@/lib/validation";
 
 const DEFAULT_HOST = "mail.privateemail.com";
@@ -35,23 +39,6 @@ function getTransport(): Transporter {
 
   return cached;
 }
-
-const ROLE_LABELS: Record<string, string> = {
-  "global-brand": "Global Brand",
-  manufacturer: "Manufacturer",
-  investor: "Investor",
-  policymaker: "Policymaker",
-  technology: "Technology Partner",
-  other: "Other",
-};
-
-const INTEREST_LABELS: Record<string, string> = {
-  sustainability: "Sustainability",
-  "investment-trade": "Investment & Trade",
-  "supply-chain": "Supply Chain",
-  "operational-excellence": "Operational Excellence",
-  general: "General Inquiry",
-};
 
 function escapeHtml(value: string): string {
   return value

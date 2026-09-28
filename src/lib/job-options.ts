@@ -49,3 +49,20 @@ export const ADMIN_ROLE_LABELS: Record<string, string> = {
   admin: "Admin",
   owner: "Owner",
 };
+
+export const CONTACT_ROLE_LABELS: Record<string, string> = {
+  "global-brand": "Global Brand",
+  manufacturer: "Manufacturer",
+  investor: "Investor",
+  policymaker: "Policymaker",
+  technology: "Technology Partner",
+  other: "Other",
+};
+
+export const CONTACT_INTEREST_LABELS: Record<string, string> = {
+  sustainability: "Sustainability",
+  "investment-trade": "Investment & Trade",
+  "supply-chain": "Supply Chain",
+  "operational-excellence": "Operational Excellence",
+  general: "General Inquiry",
+};

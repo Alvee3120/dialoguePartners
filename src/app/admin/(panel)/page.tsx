@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { getApplicationStats } from "@/lib/applications";
+import { getContactMessageStats } from "@/lib/contact-messages";
 import { getJobStats } from "@/lib/jobs";
 
 export default async function AdminDashboardPage() {
-  const [jobStats, applicationStats] = await Promise.all([
+  const [jobStats, applicationStats, messageStats] = await Promise.all([
     getJobStats(),
     getApplicationStats(),
+    getContactMessageStats(),
   ]);
 
   const cards = [
@@ -13,6 +15,7 @@ export default async function AdminDashboardPage() {
     { label: "Draft roles", value: jobStats.draft, href: "/admin/jobs" },
     { label: "Total applications", value: applicationStats.total, href: "/admin/applications" },
     { label: "New applications", value: applicationStats.fresh, href: "/admin/applications" },
+    { label: "Contact messages", value: messageStats.total, href: "/admin/messages" },
   ];
 
   return (
@@ -35,7 +38,7 @@ export default async function AdminDashboardPage() {
         </Link>
       </div>
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         {cards.map((card) => (
           <Link
             key={card.label}
@@ -50,7 +53,7 @@ export default async function AdminDashboardPage() {
         ))}
       </div>
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <Link
           href="/admin/jobs"
           className="rounded-2xl border border-line bg-white p-6 transition-colors hover:border-accent-deep"
@@ -67,6 +70,15 @@ export default async function AdminDashboardPage() {
           <p className="text-sm font-semibold text-ink">Applications</p>
           <p className="mt-1 text-sm text-foreground">
             Review candidates, update status, download CVs.
+          </p>
+        </Link>
+        <Link
+          href="/admin/messages"
+          className="rounded-2xl border border-line bg-white p-6 transition-colors hover:border-accent-deep"
+        >
+          <p className="text-sm font-semibold text-ink">Messages</p>
+          <p className="mt-1 text-sm text-foreground">
+            Read enquiries submitted through the contact form.
           </p>
         </Link>
       </div>

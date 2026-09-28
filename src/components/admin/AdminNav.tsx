@@ -8,6 +8,7 @@ const links = [
   { href: "/admin", label: "Dashboard" },
   { href: "/admin/jobs", label: "Job posts" },
   { href: "/admin/applications", label: "Applications" },
+  { href: "/admin/messages", label: "Messages" },
   { href: "/admin/profile", label: "Profile" },
 ];
 
