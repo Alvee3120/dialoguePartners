@@ -60,14 +60,22 @@ export default function AdminNav({
         })}
       </nav>
 
-      <form action={logoutAction} className="lg:mt-auto">
-        <button
-          type="submit"
-          className="w-full rounded-xl border border-white/25 px-3 py-2 text-sm font-medium text-white/85 transition-colors hover:border-white hover:bg-white/10"
+      <div className="flex flex-col gap-2 lg:mt-auto">
+        <Link
+          href="/"
+          className="w-full rounded-xl border border-white/25 px-3 py-2 text-center text-sm font-medium text-white/85 transition-colors hover:border-white hover:bg-white/10"
         >
-          Sign out
-        </button>
-      </form>
+          Back to home
+        </Link>
+        <form action={logoutAction}>
+          <button
+            type="submit"
+            className="w-full rounded-xl border border-white/25 px-3 py-2 text-sm font-medium text-white/85 transition-colors hover:border-white hover:bg-white/10"
+          >
+            Sign out
+          </button>
+        </form>
+      </div>
     </aside>
   );
 }
