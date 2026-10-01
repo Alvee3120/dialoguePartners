@@ -129,9 +129,18 @@ export default function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-6 border-t border-white/15 pt-6 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 border-t border-white/15 pt-6 text-center text-xs text-white/60">
           <p>
-            © {new Date().getFullYear()} {site.name}. All rights reserved.
+            © {new Date().getFullYear()} {site.name}. All rights reserved |
+            Designed &amp; Developed by{" "}
+            <a
+              href="https://alveeportfolio.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={linkClass}
+            >
+              Alvee
+            </a>
           </p>
         </div>
       </Container>
