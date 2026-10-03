@@ -2,11 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   EnvelopeSimple,
-  GlobeHemisphereWest,
   LinkedinLogo,
   MapPin,
   Phone,
-  YoutubeLogo,
 } from "@phosphor-icons/react/dist/ssr";
 import { navLinks, site, socialLinks } from "@/data/site";
 import { corePillars } from "@/data/corePillars";
@@ -15,8 +13,6 @@ import Logo from "./Logo";
 
 const socialIcons = {
   LinkedIn: LinkedinLogo,
-  YouTube: YoutubeLogo,
-  Website: GlobeHemisphereWest,
 } as const;
 
 function ColumnHeading({ children }: { children: string }) {
@@ -133,7 +129,7 @@ export default function SiteFooter() {
           <p>
             © {new Date().getFullYear()} {site.name}. All rights reserved |
             Designed &amp; Developed by{" "}
-            <a
+            <a 
               href="https://alveeportfolio.vercel.app"
               target="_blank"
               rel="noopener noreferrer"

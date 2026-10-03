@@ -111,6 +111,28 @@ h3 {
   transform: translateY(0);
 }
 
+/* Stakeholder wheel — see StakeholderWheel.tsx. Each card carries a radius
+   (--r, a percentage of the wheel box) and a start angle (--start). The
+   registered --a angle animates 0→360deg, and cos()/sin() trace that point
+   along the ellipse, so the cards slowly orbit while staying upright. */
+@property --a {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes orbit {
+  from { --a: 0deg; }
+  to { --a: 360deg; }
+}
+
+.orbit-card {
+  position: absolute;
+  left: calc(50% + var(--r) * cos(var(--a) + var(--start)));
+  top: calc(50% + var(--r) * sin(var(--a) + var(--start)));
+  animation: orbit 80s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

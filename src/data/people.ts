@@ -162,27 +162,27 @@ export const people: Person[] = [
       {
         label: "Vice Chairperson",
         value: "European Chamber of Commerce (EuroCham) Bangladesh",
-        logo: asset("logos/Eurocham-Bangladesh-logo.jpg"),
+        logo: asset("logos/Eurocham_logo.png"),
       },
       {
         label: "Board of Directors",
         value: "RMG Sustainability Council (RSC)",
-        logo: asset("logos/rsclogo.webp"),
+        logo: asset("logos/rsc_logo.png"),
       },
       {
         label: "Board of Directors",
         value: "Nordic Chamber of Commerce & Industry in Bangladesh",
-        logo: asset("logos/NCCI_logo.svg"),
+        logo: asset("logos/ncci_logo.png"),
       },
       {
         label: "Brands Representative",
         value: "Employment Injury Scheme (EIS) Pilot",
-        logo: asset("logos/eis_logo_new.png"),
+        logo: asset("logos/EIS_logo.png"),
       },
       {
         label: "Regional Country Manager",
         value: "H&M",
-        logo: asset("H%26M-Logo.svg"),
+        logo: asset("logos/hmlogo.png"),
       },
     ],
     education: [
@@ -274,7 +274,20 @@ export const people: Person[] = [
         ],
         description:
           "EuroCham meeting with European Investment Bank together with EU Delegation.",
-      },
+      },{
+        images: [
+          asset("mongla/IMG_5733.JPEG"),
+        ],
+        description:
+          "Logistic discussion at Mongla Port​",
+      },  
+      {
+        images: [
+          asset("pran/b6a960c5-0a29-4ff7-bba7-980af3b3f573.JPEG"),
+        ],
+        description:
+          "H&M – PRAN RFL – IFC​ MOU Signing Ceremony ​",
+      },  
     ],
     socials: {
       linkedin: "https://www.linkedin.com/in/ziaur-rahman-bangladesh/",

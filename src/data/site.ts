@@ -15,8 +15,6 @@ export const site = {
     asset("Hero-DialoguePartners.mp4"),
   footerBackground:
     asset("footerbg.png"),
-  roleBackground:
-    asset("ourrolebg.png"),
   mottoBackground:
     asset("motobg.png"),
 };
@@ -32,9 +30,10 @@ export const navLinks = [
 
 // TODO: confirm the real profile URLs before launch.
 export const socialLinks: { label: SocialLabel; href: string }[] = [
-  { label: "LinkedIn", href: "#" },
-  { label: "YouTube", href: "#" },
-  { label: "Website", href: "#" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/dialoguepartners/",
+  },
 ];
 
-export type SocialLabel = "LinkedIn" | "YouTube" | "Website";
+export type SocialLabel = "LinkedIn";

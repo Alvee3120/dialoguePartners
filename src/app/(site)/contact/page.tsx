@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Container from "@/components/site/Container";
 import PageHeader from "@/components/shared/PageHeader";
 import ContactForm from "@/components/site/ContactForm";
-import { site } from "@/data/site";
+import { site, socialLinks } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Connect With Us",
@@ -59,13 +59,13 @@ export default function ContactPage() {
                 <div className="mt-6">
                   <p className="text-xs uppercase tracking-[0.15em] text-white/40">Follow us</p>
                   <div className="mt-3 flex flex-wrap gap-2">
-                    {["LinkedIn", "Facebook", "X"].map((platform) => (
+                    {socialLinks.map(({ label, href }) => (
                       <a
-                        key={platform}
-                        href="#"
+                        key={label}
+                        href={href}
                         className="rounded-full border border-white/20 px-4 py-2 text-xs font-medium text-white/80 transition-colors hover:border-white hover:bg-white/10"
                       >
-                        {platform}
+                        {label}
                       </a>
                     ))}
                   </div>

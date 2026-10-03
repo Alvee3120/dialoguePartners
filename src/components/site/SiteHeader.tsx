@@ -66,9 +66,11 @@ export default function SiteHeader() {
   return (
     <header
       className={`sticky top-0 z-50 transition-colors duration-300 motion-reduce:transition-none ${
-        scrolled
-          ? "bg-background/85 shadow-[0_1px_0_0_var(--color-line)] backdrop-blur"
-          : "bg-transparent"
+        overHero
+          ? "bg-transparent"
+          : `bg-background ${
+              scrolled ? "shadow-[0_1px_0_0_var(--color-line)]" : ""
+            }`
       }`}
     >
       <nav

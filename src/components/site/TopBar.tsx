@@ -1,18 +1,14 @@
 import Link from "next/link";
 import {
   EnvelopeSimple,
-  GlobeHemisphereWest,
   LinkedinLogo,
   MapPin,
-  YoutubeLogo,
 } from "@phosphor-icons/react/dist/ssr";
 import Container from "./Container";
 import { site, socialLinks } from "@/data/site";
 
 const socialIcons = {
   LinkedIn: LinkedinLogo,
-  YouTube: YoutubeLogo,
-  Website: GlobeHemisphereWest,
 } as const;
 
 /** Slim utility strip above the nav — contact details, CTA and social links. */

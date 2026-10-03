@@ -4,7 +4,7 @@ import ImageSlot from "@/components/site/ImageSlot";
 import SectionHeading from "@/components/site/SectionHeading";
 import { values } from "@/components/shared/ValuesGrid";
 import AboutHero from "@/components/about/AboutHero";
-import OurRoleSection from "@/components/about/OurRoleSection";
+import StakeholderWheel from "@/components/about/StakeholderWheel";
 import { asset } from "@/lib/assets";
 
 export const metadata: Metadata = {
@@ -61,8 +61,8 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Our Role */}
-      <OurRoleSection />
+      {/* Stakeholders */}
+      <StakeholderWheel />
 
       {/* Our Work */}
       <section className="bg-paper py-20 sm:py-28">
