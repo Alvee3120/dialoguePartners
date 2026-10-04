@@ -146,7 +146,8 @@ h3 {
     transform: none;
   }
 
-  .spoke-dot {
+  .spoke-dot,
+  .travel-marker {
     display: none;
   }
 }

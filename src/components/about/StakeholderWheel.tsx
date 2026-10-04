@@ -72,14 +72,7 @@ const CY = 500;
 const toUnitsX = (radius: number) => radius * 16;
 const toUnitsY = (radius: number) => radius * 10;
 
-// Straight spokes from the centre out to every card, plus the bright palette
-// cycling through the dots that travel along them.
-const accentPalette = [
-  "#ef4444", "#f59e0b", "#f97316", "#10b981",
-  "#14b8a6", "#06b6d4", "#3b82f6", "#6366f1",
-  "#8b5cf6", "#a855f7", "#d946ef", "#ec4899",
-];
-
+// Straight spokes from the centre out to every card.
 const spokes = rings.flatMap((ring) =>
   ring.items.map((item) => ({
     title: item.title,
@@ -87,6 +80,35 @@ const spokes = rings.flatMap((ring) =>
     y: CY + toUnitsY(ring.radius) * Math.sin((item.angle * Math.PI) / 180),
   })),
 );
+
+// Bright palette cycling through the dots that travel along the spokes.
+const accentPalette = [
+  "#ef4444", "#f59e0b", "#f97316", "#10b981",
+  "#14b8a6", "#06b6d4", "#3b82f6", "#6366f1",
+  "#8b5cf6", "#a855f7", "#d946ef", "#ec4899",
+];
+
+// Deterministic shuffle (seeded) so the route looks random but renders
+// identically on the server and the client — no hydration mismatch.
+function seededShuffle<T>(items: T[], seed: number): T[] {
+  const out = [...items];
+  let state = seed;
+  const next = () => {
+    state = (state * 1664525 + 1013904223) % 4294967296;
+    return state / 4294967296;
+  };
+  for (let i = out.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(next() * (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
+}
+
+// The logo dashes out along each spoke to touch a stakeholder and returns to
+// the centre, visiting every card once per loop in a random order.
+const tourPath = `M${CX},${CY}${seededShuffle(spokes, 7)
+  .map((spoke) => ` L${spoke.x},${spoke.y} L${CX},${CY}`)
+  .join("")}`;
 
 function RingLines() {
   return (
@@ -97,8 +119,8 @@ function RingLines() {
       className="pointer-events-none absolute inset-0 h-full w-full"
       style={{ zIndex: 1 }}
     >
-      {/* Spokes connecting each card back to the centre, with a bright dot
-          travelling from the centre out to the card and back. */}
+      {/* Straight spokes connecting each card back to the centre, with a
+          bright dot travelling from the centre out to the card and back. */}
       {spokes.map((spoke, index) => (
         <g key={`spoke-${spoke.title}`}>
           <line
@@ -116,8 +138,8 @@ function RingLines() {
             fill={accentPalette[index % accentPalette.length]}
           >
             <animateMotion
-              dur={`${4 + (index % 4)}s`}
-              begin={`${(index * 0.35).toFixed(2)}s`}
+              dur={`${9 + (index % 4)}s`}
+              begin={`${(index * 0.5).toFixed(2)}s`}
               repeatCount="indefinite"
               path={`M${CX},${CY} L${spoke.x},${spoke.y}`}
               keyPoints="0;1;0"
@@ -156,6 +178,37 @@ function RingLines() {
           />
         </g>
       ))}
+    </svg>
+  );
+}
+
+function TravelMarker() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 1600 1000"
+      preserveAspectRatio="none"
+      className="pointer-events-none absolute inset-0 h-full w-full"
+      style={{ zIndex: 20 }}
+    >
+      <g className="travel-marker">
+        <animateMotion dur="14s" repeatCount="indefinite" path={tourPath} />
+        <circle
+          r="26"
+          fill="#ffffff"
+          stroke="#10202f"
+          strokeOpacity="0.12"
+          strokeWidth="2"
+        />
+        <image
+          href="/images/logo.svg"
+          x={-20}
+          y={-13}
+          width={40}
+          height={26}
+          preserveAspectRatio="xMidYMid meet"
+        />
+      </g>
     </svg>
   );
 }
@@ -226,6 +279,8 @@ export default function StakeholderWheel() {
                 <RingCard key={item.title} item={item} ring={ring} />
               )),
             )}
+
+            <TravelMarker />
 
             <div className="absolute left-1/2 top-1/2 z-40 flex size-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_12px_32px_rgba(16,32,47,0.2)] ring-1 ring-line sm:size-28">
               <Image
