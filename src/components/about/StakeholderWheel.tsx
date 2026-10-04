@@ -65,28 +65,28 @@ const rings: RingConfig[] = [
   { items: baseStakeholders, radius: 18, zIndex: 3 },
 ];
 
-// Colourful accent dots scattered along the rings — {radius, angle, r (units)}.
-const accentDots = [
-  { radius: 41, angle: 22, r: 5, color: "#ef4444" },
-  { radius: 41, angle: 100, r: 4, color: "#f59e0b" },
-  { radius: 41, angle: 222, r: 6, color: "#10b981" },
-  { radius: 41, angle: 305, r: 4, color: "#3b82f6" },
-  { radius: 30, angle: 50, r: 5, color: "#a855f7" },
-  { radius: 30, angle: 178, r: 3.5, color: "#ec4899" },
-  { radius: 30, angle: 262, r: 5.5, color: "#06b6d4" },
-  { radius: 30, angle: 340, r: 3, color: "#22c55e" },
-  { radius: 18, angle: 45, r: 4, color: "#f97316" },
-  { radius: 18, angle: 135, r: 3.5, color: "#8b5cf6" },
-  { radius: 18, angle: 215, r: 4.5, color: "#14b8a6" },
-  { radius: 18, angle: 325, r: 3, color: "#e11d48" },
-];
-
 // The wheel is 16:10, so one 1600×1000 SVG overlays it with a single uniform
 // scale — every ring keeps the same stroke weight and dot spacing.
 const CX = 800;
 const CY = 500;
 const toUnitsX = (radius: number) => radius * 16;
 const toUnitsY = (radius: number) => radius * 10;
+
+// Straight spokes from the centre out to every card, plus the bright palette
+// cycling through the dots that travel along them.
+const accentPalette = [
+  "#ef4444", "#f59e0b", "#f97316", "#10b981",
+  "#14b8a6", "#06b6d4", "#3b82f6", "#6366f1",
+  "#8b5cf6", "#a855f7", "#d946ef", "#ec4899",
+];
+
+const spokes = rings.flatMap((ring) =>
+  ring.items.map((item) => ({
+    title: item.title,
+    x: CX + toUnitsX(ring.radius) * Math.cos((item.angle * Math.PI) / 180),
+    y: CY + toUnitsY(ring.radius) * Math.sin((item.angle * Math.PI) / 180),
+  })),
+);
 
 function RingLines() {
   return (
@@ -97,6 +97,37 @@ function RingLines() {
       className="pointer-events-none absolute inset-0 h-full w-full"
       style={{ zIndex: 1 }}
     >
+      {/* Spokes connecting each card back to the centre, with a bright dot
+          travelling from the centre out to the card and back. */}
+      {spokes.map((spoke, index) => (
+        <g key={`spoke-${spoke.title}`}>
+          <line
+            x1={CX}
+            y1={CY}
+            x2={spoke.x}
+            y2={spoke.y}
+            stroke="#10202f"
+            strokeOpacity="0.18"
+            strokeWidth="2"
+          />
+          <circle
+            className="spoke-dot"
+            r="5"
+            fill={accentPalette[index % accentPalette.length]}
+          >
+            <animateMotion
+              dur={`${4 + (index % 4)}s`}
+              begin={`${(index * 0.35).toFixed(2)}s`}
+              repeatCount="indefinite"
+              path={`M${CX},${CY} L${spoke.x},${spoke.y}`}
+              keyPoints="0;1;0"
+              keyTimes="0;0.5;1"
+              calcMode="linear"
+            />
+          </circle>
+        </g>
+      ))}
+
       {rings.map((ring) => (
         <g key={`ring-${ring.radius}`}>
           {/* Faint continuous guide */}
@@ -124,16 +155,6 @@ function RingLines() {
             strokeLinecap="round"
           />
         </g>
-      ))}
-
-      {accentDots.map((dot, index) => (
-        <circle
-          key={`accent-${index}`}
-          cx={CX + toUnitsX(dot.radius) * Math.cos((dot.angle * Math.PI) / 180)}
-          cy={CY + toUnitsY(dot.radius) * Math.sin((dot.angle * Math.PI) / 180)}
-          r={dot.r}
-          fill={dot.color}
-        />
       ))}
     </svg>
   );
