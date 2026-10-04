@@ -13,6 +13,10 @@ export const metadata: Metadata = {
     "How Dialogue Partners was founded — a consultancy and ecosystem catalyst for Bangladesh's RMG sector.",
 };
 
+// The stakeholder wheel shuffles its tour per render, so keep this route
+// dynamic to regenerate that order on the server for each request.
+export const dynamic = "force-dynamic";
+
 export default function AboutPage() {
   return (
     <>

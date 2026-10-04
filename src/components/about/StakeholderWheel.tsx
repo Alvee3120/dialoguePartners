@@ -88,27 +88,19 @@ const accentPalette = [
   "#8b5cf6", "#a855f7", "#d946ef", "#ec4899",
 ];
 
-// Deterministic shuffle (seeded) so the route looks random but renders
-// identically on the server and the client — no hydration mismatch.
-function seededShuffle<T>(items: T[], seed: number): T[] {
-  const out = [...items];
-  let state = seed;
-  const next = () => {
-    state = (state * 1664525 + 1013904223) % 4294967296;
-    return state / 4294967296;
-  };
-  for (let i = out.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(next() * (i + 1));
-    [out[i], out[j]] = [out[j], out[i]];
-  }
-  return out;
-}
-
 // The logo dashes out along each spoke to touch a stakeholder and returns to
-// the centre, visiting every card once per loop in a random order.
-const tourPath = `M${CX},${CY}${seededShuffle(spokes, 7)
-  .map((spoke) => ` L${spoke.x},${spoke.y} L${CX},${CY}`)
-  .join("")}`;
+// the centre, visiting every card once per loop. The order is shuffled on the
+// server for every render, so the tour differs on each visit.
+function buildTourPath(): string {
+  const order = [...spokes];
+  for (let i = order.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  return `M${CX},${CY}${order
+    .map((spoke) => ` L${spoke.x},${spoke.y} L${CX},${CY}`)
+    .join("")}`;
+}
 
 function RingLines() {
   return (
@@ -182,7 +174,7 @@ function RingLines() {
   );
 }
 
-function TravelMarker() {
+function TravelMarker({ path }: { path: string }) {
   return (
     <svg
       aria-hidden="true"
@@ -192,7 +184,7 @@ function TravelMarker() {
       style={{ zIndex: 20 }}
     >
       <g className="travel-marker">
-        <animateMotion dur="14s" repeatCount="indefinite" path={tourPath} />
+        <animateMotion dur="14s" repeatCount="indefinite" path={path} />
         <circle
           r="26"
           fill="#ffffff"
@@ -242,6 +234,8 @@ function RingCard({ item, ring }: { item: RingEntry; ring: RingConfig }) {
 }
 
 export default function StakeholderWheel() {
+  const tourPath = buildTourPath();
+
   return (
     <section className="relative w-full overflow-hidden bg-white py-14 md:py-20">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
@@ -280,7 +274,7 @@ export default function StakeholderWheel() {
               )),
             )}
 
-            <TravelMarker />
+            <TravelMarker path={tourPath} />
 
             <div className="absolute left-1/2 top-1/2 z-40 flex size-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_12px_32px_rgba(16,32,47,0.2)] ring-1 ring-line sm:size-28">
               <Image
